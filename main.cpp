@@ -1,5 +1,5 @@
 #include "Planet/Planet.h"
-#include "Ticket/Ticket.h"
+// #include "Ticket/Ticket.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -47,8 +47,10 @@ bool Equal(char m1[256], char m2[256]){
     return true;
 }
 
+
+
 template<typename T>
-void DatabaseFromFile(T* items, int size){
+void DatabaseFromFile(T*& items, int& size) {  // Add reference to size parameter
     char filename[256];
     char flag_0[256]{};
     flag_0[0] = '0';
@@ -56,21 +58,21 @@ void DatabaseFromFile(T* items, int size){
     std::cout << "Введите имя файла для чтения или цифру «0» для осведомления с необходимой структурой файла: ";
     std::cin >> filename;
     if (!Equal(filename, flag_0)) {
-        //T::readFromFile(filename, items, size);
-    } else if (typeid(T) ==typeid(Planet)){
+        T::readFromFile(filename, items, size);
+    } else if (typeid(T) == typeid(Planet)){
         std::cout << std::endl << "1-я строка: кол-во планет;";
         std::cout << std::endl << "Далее в каждой строчке по одному объекту планеты со следующими характеристиками через пробел:";
         std::cout << std::endl << "1)Название 2)Диаметр 3)Жизнь 4)Спутники" << std::endl;
         std::cout << "\nА теперь введите имя файла для чтения: ";
         std::cin >> filename;
-        //T::readFromFile(filename, items, size);
+        T::readFromFile(filename, items, size);
     } else {
         std::cout << std::endl << "1-я строка: кол-во билетов;";
         std::cout << std::endl << "Далее в каждой строчке по одному объекту планеты со следующими характеристиками через пробел:";
         std::cout << std::endl << "1)Рейс(Куда) 2)№Вагона 3)№Места 4)Цена" << std::endl;
         std::cout << "\nА теперь введите имя файла для чтения: ";
         std::cin >> filename;
-        //T::readFromFile(filename, items, size);
+        T::readFromFile(filename, items, size);
     }
 }
 
@@ -79,32 +81,43 @@ void DatabaseToFile(T* items, int size){
     char filename[256];
     std::cout << "Введите имя файла для записи: ";
     std::cin >> filename;
-    //T::writeToFile(filename, items, size);
+    T::writeToFile(filename, items, size);
 }
 
 template<typename T>
-void SortDatabase(){
+void SortDatabase(T*& items, int size){
+    T::Sort(items, size);
+}
+
+template<typename T>
+void AddToDatabase(T*& items, int size){
+    T newItem;
+    if constexpr (std::is_same_v<T, Planet>) {
+        std::cout << "Введите данные нового элемента, в одну строку через пробел\n";
+        std::cout << "1)Название 2)Диаметр 3)Жизнь 4)Спутники\n";
+        std::cout << "Ваш элемент: ";
+    } else {
+        std::cout << "Введите данные нового элемента, в одну строку через пробел\n";
+        std::cout << "1)Рейс(Куда) 2)№Вагона 3)№Места 4)Цена\n";
+        std::cout << "Ваш элемент: ";
+    }
+    std::cin >> newItem;
+    T::Add(items, size, newItem);
+}
+
+template<typename T>
+void DelFromDatabase(T*& items, int size){
 
 }
 
 template<typename T>
-void AddToDatabase(){
+void EditDatabase(T*& items, int size){
 
 }
 
 template<typename T>
-void DelFromDatabase(){
-
-}
-
-template<typename T>
-void EditDatabase(){
-
-}
-
-template<typename T>
-void PrintDatabase(){
-
+void PrintDatabase(T* items, int size){
+    T::Print(items, size);
 }
 
 
@@ -123,19 +136,19 @@ void RunDatabase(const std::string& type) {
                 DatabaseToFile<T>(items, size);
                 break;
             case '3':
-                SortDatabase<T>();
+                SortDatabase<T>(items, size);
                 break;
             case '4':
-                AddToDatabase<T>();
+                AddToDatabase<T>(items, size);
                 break;
             case '5':
-                DelFromDatabase<T>();
+                DelFromDatabase<T>(items, size);
                 break;
             case '6':
-                EditDatabase<T>();
+                EditDatabase<T>(items, size);
                 break;
             case '7':
-                PrintDatabase<T>();
+                PrintDatabase<T>(items, size);
                 break;
             default:
                 exit_run_database = false;
@@ -154,7 +167,7 @@ int main(){
                 RunDatabase<Planet>("планет");
                 break;
             case '2':
-                RunDatabase<Ticket>("билет");
+                // RunDatabase<Ticket>("билет");
                 break;
             case '3':
                 break;
