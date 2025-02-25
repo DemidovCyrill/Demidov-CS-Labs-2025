@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTicket.a CMakeFiles/Ticket.dir/Ticket.cpp.o
+/usr/bin/ranlib libTicket.a

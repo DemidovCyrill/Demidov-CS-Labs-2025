@@ -1,0 +1,9 @@
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/lab_2.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/rebuild_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Planet/CMakeFiles/Planet.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Planet/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Planet/CMakeFiles/rebuild_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Ticket/CMakeFiles/Ticket.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Ticket/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Ticket/CMakeFiles/rebuild_cache.dir
