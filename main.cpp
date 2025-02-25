@@ -1,5 +1,5 @@
 #include "Planet/Planet.h"
-// #include "Ticket/Ticket.h"
+#include "Ticket/Ticket.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -28,8 +28,6 @@ char MenuDatabase(){
     std::cout << "Для выбора операции введите цифру от 1 до 7" << std::endl;
     char answer;
     std::cin >> answer;
-    std::cout << std::endl;
-    std::cout << std::endl;
     return answer;
 }
 
@@ -50,7 +48,7 @@ bool Equal(char m1[256], char m2[256]){
 
 
 template<typename T>
-void DatabaseFromFile(T*& items, int& size) {  // Add reference to size parameter
+void DatabaseFromFile(T*& items, int& size) {
     char filename[256];
     char flag_0[256]{};
     flag_0[0] = '0';
@@ -59,7 +57,7 @@ void DatabaseFromFile(T*& items, int& size) {  // Add reference to size paramete
     std::cin >> filename;
     if (!Equal(filename, flag_0)) {
         T::readFromFile(filename, items, size);
-    } else if (typeid(T) == typeid(Planet)){
+    } else if (typeid(T) == typeid(Ticket)){
         std::cout << std::endl << "1-я строка: кол-во планет;";
         std::cout << std::endl << "Далее в каждой строчке по одному объекту планеты со следующими характеристиками через пробел:";
         std::cout << std::endl << "1)Название 2)Диаметр 3)Жизнь 4)Спутники" << std::endl;
@@ -90,9 +88,9 @@ void SortDatabase(T*& items, int size){
 }
 
 template<typename T>
-void AddToDatabase(T*& items, int size){
+void AddToDatabase(T*& items, int& size){
     T newItem;
-    if constexpr (std::is_same_v<T, Planet>) {
+    if constexpr(std::is_same_v<T, Ticket>) {
         std::cout << "Введите данные нового элемента, в одну строку через пробел\n";
         std::cout << "1)Название 2)Диаметр 3)Жизнь 4)Спутники\n";
         std::cout << "Ваш элемент: ";
@@ -106,13 +104,43 @@ void AddToDatabase(T*& items, int size){
 }
 
 template<typename T>
-void DelFromDatabase(T*& items, int size){
-
+void DelFromDatabase(T*& items, int& size){
+    int index;
+    std::cout << "Введите индекс элемента для удаления: ";
+    std::cin >> index;
+    if (index < 0 || index >= size) {
+        std::cerr << "Неверный индекс для удаления!" << std::endl;
+        return;
+    }
+    std::cout << "Вы хотите удалить элемент:\n" << items[index];
+    std::cout << "\n(y/n)\n";
+    char flag;
+    std::cin >> flag;
+    if (flag != 'y') {
+        DelFromDatabase(items, size);
+        return;
+    }
+    T::Remove(items, size, index);
 }
 
 template<typename T>
 void EditDatabase(T*& items, int size){
-
+    int index;
+    std::cout << "Введите индекс элемента для редактирования: ";
+    std::cin >> index;
+    if (index < 0 || index >= size) {
+        std::cerr << "Неверный индекс для редактирования!" << std::endl;
+        return;
+    }
+    std::cout << "Вы хотите редактированть элемент:\n" << items[index];
+    std::cout << "\n(y/n)\n";
+    char flag;
+    std::cin >> flag;
+    if (flag != 'y') {
+        EditDatabase(items, size);
+        return;
+    }
+    T::Edit(items, size, index);
 }
 
 template<typename T>
@@ -122,7 +150,7 @@ void PrintDatabase(T* items, int size){
 
 
 template<typename T>
-void RunDatabase(const std::string& type) {
+void RunDatabase() {
     T* items = nullptr;
     int size = 0;
 
@@ -164,10 +192,10 @@ int main(){
         switch (menu())
         {
             case '1':
-                RunDatabase<Planet>("планет");
+                RunDatabase<Planet>();
                 break;
             case '2':
-                // RunDatabase<Ticket>("билет");
+                RunDatabase<Ticket>();
                 break;
             case '3':
                 break;

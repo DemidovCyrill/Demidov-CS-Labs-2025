@@ -20,6 +20,7 @@ Planet::~Planet() {
     cleanup();
 }
 
+
 Planet& Planet::operator=(const Planet& other) {
     if (this != &other) {
         cleanup();
@@ -87,7 +88,6 @@ void Planet::readFromFile(const char* filename, Planet*& planets, int& size) {
 
     file.ignore();
     std::cout << "УСПЕШНО!" << std::endl;
-    std::cout << "Прочитан размер: " << newSize << std::endl;
 
     Planet* newPlanets = new Planet[newSize];
     bool success = true;
@@ -99,12 +99,7 @@ void Planet::readFromFile(const char* filename, Planet*& planets, int& size) {
         int sat;
 
         if (file >> name >> diam >> life >> sat) {
-            std::cout << "Попытка создания планеты " << i << ": "
-                     << name << " " << diam << " "
-                     << life << " " << sat << std::endl;
-
-                newPlanets[i] = Planet(name, diam, life != 0, sat);
-                std::cout << "Планета " << i << " успешно создана" << std::endl;
+            newPlanets[i] = Planet(name, diam, life != 0, sat);
         } else {
             std::cerr << "Ошибка при чтении планеты " << i << std::endl;
             success = false;
@@ -160,11 +155,6 @@ void Planet::Add(Planet*& planets, int& size, const Planet& newPlanet) {
 }
 
 void Planet::Remove(Planet*& planets, int& size, int index) {
-    if (index < 0 || index >= size) {
-        std::cerr << "Неверный индекс для удаления." << std::endl;
-        return;
-    }
-
     Planet* newArray = new Planet[size - 1];
     int j = 0;
     for (int i = 0; i < size; ++i) {
@@ -177,9 +167,11 @@ void Planet::Remove(Planet*& planets, int& size, int index) {
     --size;
 }
 
-void Planet::Edit(Planet& planet) {
-    std::cout << "Введите новые данные для планеты:" << std::endl;
+void Planet::Edit(Planet*& planets, int size, int index) {
+    Planet planet;
+    std::cout << "Введите новые данные для планеты (должны быть заполнены все 4 поля):" << std::endl;
     std::cin >> planet;
+    planets[index] = planet;
 }
 
 void Planet::Print(const Planet* planets, int size) {

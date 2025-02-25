@@ -1,0 +1,6 @@
+5
+Moscow-Yekaterinburg 1 1 4700
+Tokyo-Okinawa 4 1 6900
+Sochi-Moscow 2 21 16500
+St.Petersburg-Kaliningrad 1 12 5000
+New_York-Washington 1 11 14300

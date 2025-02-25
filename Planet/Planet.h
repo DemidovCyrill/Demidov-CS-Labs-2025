@@ -32,7 +32,7 @@ public:
     static void Sort(Planet* planets, int size);
     static void Add(Planet*& planets, int& size, const Planet& newPlanet);
     static void Remove(Planet*& planets, int& size, int index);
-    static void Edit(Planet& planet);
+    static void Edit(Planet*& planets, int size, int index);
     static void Print(const Planet* planets, int size);
 
 private:
