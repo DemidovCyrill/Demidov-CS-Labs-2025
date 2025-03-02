@@ -14,7 +14,6 @@ char menu(){
     char answer;
     std::cin >> answer;
     std::cout << std::endl;
-    std::cout << std::endl;
     return answer;
 }
 
@@ -92,11 +91,11 @@ void AddToDatabase(T*& items, int& size){
     T newItem;
     if constexpr(std::is_same_v<T, Ticket>) {
         std::cout << "Введите данные нового элемента, в одну строку через пробел\n";
-        std::cout << "1)Название 2)Диаметр 3)Жизнь 4)Спутники\n";
+        std::cout << "1)Рейс(Куда) 2)№Вагона 3)№Места 4)Цена\n";
         std::cout << "Ваш элемент: ";
     } else {
         std::cout << "Введите данные нового элемента, в одну строку через пробел\n";
-        std::cout << "1)Рейс(Куда) 2)№Вагона 3)№Места 4)Цена\n";
+        std::cout << "1)Название 2)Диаметр 3)Жизнь 4)Спутники\n";
         std::cout << "Ваш элемент: ";
     }
     std::cin >> newItem;
@@ -185,6 +184,46 @@ void RunDatabase() {
     }
 }
 
+//std::cout << "" << std::endl;
+void RunTests(){
+    std::cout << "В этом режиме будут протестированны функции программы" << std::endl;
+    std::cout << "Если вы будете неудовлетворены результатом, то можете протестировать в ручном режиме!" << std::endl;
+    std::cout << std::endl << "Тестировка работы БД планет:" << std::endl;
+    Planet* items = nullptr;
+    int size = 0;
+
+    std::cout << "Добавление Нептуна, Юпитера, Марса, солнца, астероида и землии соответсвенно (с их характеристиками)" << std::endl;
+    std::cout << "Формат: 1)Название 2)Диаметр 3)Жизнь 4)Спутники\n" << std::endl;
+    Planet::Add(items, size, Planet("Neptune", 49600, 0, 14));
+    Planet::Add(items, size, Planet("Jupiter", 142796, 0, 79));
+    Planet::Add(items, size, Planet("Mars", 6786, 1, 2));
+    Planet::Add(items, size, Planet("Sun", 1392000, 0, 13));
+    Planet::Add(items, size, Planet("Asteroid", 1, 0, 0));
+    Planet::Add(items, size, Planet("Earth", 12756, 1, 1));
+    PrintDatabase<Planet>(items, size);
+
+    std::cout << std::endl << "Сортировка Элементов:" << std::endl;
+    SortDatabase<Planet>(items, size);
+    PrintDatabase<Planet>(items, size);
+
+    std::cout << std::endl << "Удаления солнца и нептуна (они мне не нравятся):" << std::endl;
+    Planet::Remove(items, size, 3);
+    Planet::Remove(items, size, 4);
+    PrintDatabase<Planet>(items, size);
+
+    std::cout << std::endl << "Изменение элементов (увеличение астероида и вымирание человечества):" << std::endl;
+    items[0] = Planet("Asteroid", 10000, 0, 0);
+    items[2] = Planet("Earth", 12756, 0, 1);
+    PrintDatabase<Planet>(items, size);
+
+    std::cout << std::endl << "Сортировка Элементов:" << std::endl;
+    SortDatabase<Planet>(items, size);
+    PrintDatabase<Planet>(items, size);
+
+    std::cout << std::endl << "Вывод БД в файл test_planet.txt в данную директорию:" << std::endl;
+    Planet::writeToFile("test_planet.txt", items, size);
+}
+
 
 int main(){
     bool exit_programm = true;
@@ -198,6 +237,7 @@ int main(){
                 RunDatabase<Ticket>();
                 break;
             case '3':
+            RunTests();
                 break;
             default:
             std::cout << "Спасибо за работу, до свидания!" << std::endl;

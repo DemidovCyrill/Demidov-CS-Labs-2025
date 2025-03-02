@@ -196,6 +196,54 @@ CMakeFiles/lab_2.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
+lab_2: /lib/x86_64-linux-gnu/libc.so.6 \
+  /lib/x86_64-linux-gnu/libm.so.6 \
+  /lib/x86_64-linux-gnu/libmvec.so.1 \
+  /lib64/ld-linux-x86-64.so.2 \
+  /usr/lib/x86_64-linux-gnu/Scrt1.o \
+  /usr/lib/x86_64-linux-gnu/crti.o \
+  /usr/lib/x86_64-linux-gnu/crtn.o \
+  /usr/lib/x86_64-linux-gnu/libc.so \
+  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 \
+  /usr/lib/x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
+  /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
+  CMakeFiles/lab_2.dir/main.cpp.o \
+  Planet/libPlanet.a \
+  Ticket/libTicket.a
+
+
+Ticket/libTicket.a:
+
+CMakeFiles/lab_2.dir/main.cpp.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/x86_64-linux-gnu/libm.so:
+
+/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/lib/x86_64-linux-gnu/libc.so:
+
+/usr/lib/x86_64-linux-gnu/crtn.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/x86_64-linux-gnu/crti.o:
+
+/lib64/ld-linux-x86-64.so.2:
+
+/lib/x86_64-linux-gnu/libmvec.so.1:
+
+/lib/x86_64-linux-gnu/libm.so.6:
+
+/lib/x86_64-linux-gnu/libc.so.6:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
 
@@ -232,6 +280,8 @@ CMakeFiles/lab_2.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
 /usr/include/c++/13/ext/alloc_traits.h:
 
 /usr/include/c++/13/bits/functexcept.h:
+
+Planet/libPlanet.a:
 
 /usr/include/c++/13/debug/debug.h:
 
@@ -289,6 +339,8 @@ CMakeFiles/lab_2.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
 
 /usr/include/c++/13/bits/utility.h:
 
+/usr/lib/x86_64-linux-gnu/libc_nonshared.a:
+
 /usr/include/c++/13/bits/ostream_insert.h:
 
 /usr/include/c++/13/bits/nested_exception.h:
@@ -332,6 +384,8 @@ CMakeFiles/lab_2.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
 /usr/include/c++/13/cwctype:
 
 /usr/include/c++/13/bits/postypes.h:
+
+/usr/lib/x86_64-linux-gnu/Scrt1.o:
 
 /usr/include/wchar.h:
 
@@ -493,6 +547,8 @@ CMakeFiles/lab_2.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o:
+
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/c++/13/bits/ptr_traits.h:
@@ -538,6 +594,8 @@ CMakeFiles/lab_2.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
 /usr/include/c++/13/bits/std_abs.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
