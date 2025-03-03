@@ -1,9 +1,0 @@
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/CMakeFiles/lab1.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/CMakeFiles/edit_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/CMakeFiles/rebuild_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/mymath/CMakeFiles/mymath.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/mymath/CMakeFiles/edit_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/mymath/CMakeFiles/rebuild_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/mymath_2/CMakeFiles/mymath_2.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/mymath_2/CMakeFiles/edit_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/lab_1/build/mymath_2/CMakeFiles/rebuild_cache.dir

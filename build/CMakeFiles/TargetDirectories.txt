@@ -1,0 +1,6 @@
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/lab_3.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/rebuild_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Fraction/CMakeFiles/Fraction.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Fraction/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/Fraction/CMakeFiles/rebuild_cache.dir

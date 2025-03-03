@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/lab3.dir/link.d CMakeFiles/lab3.dir/main.cpp.o -o lab3   -L/home/dem/Lab/Demidov-CS-Labs-2025/lab_3/lib  -Wl,-rpath,/home/dem/Lab/Demidov-CS-Labs-2025/lab_3/lib -lmymath
