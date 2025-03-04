@@ -12,8 +12,8 @@ private:
     static int gcd(int a, int b);
 
 public:
-    Fraction();
-    Fraction(int num, int den = 1);
+   // Fraction();
+    Fraction(int num=0, int den = 1);
     Fraction(const char* str);
     Fraction(double d);
 

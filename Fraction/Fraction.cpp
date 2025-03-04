@@ -4,7 +4,7 @@
 
 const int N_DEC = 4;
 
-Fraction::Fraction() : numerator(0), denominator(1) {}
+//Fraction::Fraction() : numerator(0), denominator(1) {}
 
 Fraction::Fraction(int num, int den) : numerator(num), denominator(den) {
     if (denominator == 0) {
