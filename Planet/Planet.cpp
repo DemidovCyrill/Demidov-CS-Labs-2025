@@ -184,6 +184,7 @@ void Planet::Remove(Planet*& planets, int& size, int index) {
             newArray[j++] = planets[i];
         }
     }
+        delete planets[index].name;
     delete[] planets;
     planets = newArray;
     --size;

@@ -186,6 +186,7 @@ void Ticket::Remove(Ticket*& tickets, int& size, int index) {
             newArray[j++] = tickets[i];
         }
     }
+    delete tickets[index].arrival;
     delete[] tickets;
     tickets = newArray;
     --size;
