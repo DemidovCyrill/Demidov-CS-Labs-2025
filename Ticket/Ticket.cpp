@@ -141,8 +141,30 @@ void Ticket::writeToFile(const char* filename, const Ticket* tickets, int size) 
     std::cout << "Успешно!" << std::endl;
 }
 
+void swap(Ticket& a, Ticket& b)
+{
+    Ticket c = a;
+    a = b;
+    b = c;
+
+}
+
 void Ticket::Sort(Ticket* tickets, int size) {
-    std::sort(tickets, tickets + size);
+    bool swapped;
+    for (size_t i = 0; i < size; ++i)
+    {
+        swapped = false;
+        for (size_t j = 0; j < size - i - 1; ++j)
+        {
+            if (tickets[j + 1] < tickets[j]) {
+                swap(tickets[j], tickets[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
 }
 
 void Ticket::Add(Ticket*& tickets, int& size, const Ticket& newTicket) {

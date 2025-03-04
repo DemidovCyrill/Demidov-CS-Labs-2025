@@ -30,13 +30,13 @@ Planet& Planet::operator=(const Planet& other) {
 }
 
 bool Planet::operator<(const Planet& other) const {
-    return diameter < other.diameter;
+    return std::strcmp(name, other.name) < 0;
 }
 
 
 
 bool Planet::operator==(const Planet& other) const {
-    return diameter == other.diameter;
+    return std::strcmp(name, other.name) == 0;
 }
 
 
@@ -139,8 +139,30 @@ void Planet::writeToFile(const char* filename, const Planet* planets, int size) 
     std::cout << "Успешно!" << std::endl;
 }
 
+void swap(Planet& a, Planet& b)
+{
+    Planet c = a;
+    a = b;
+    b = c;
+
+}
+
 void Planet::Sort(Planet* planets, int size) {
-    std::sort(planets, planets + size);
+    bool swapped;
+    for (size_t i = 0; i < size; ++i)
+    {
+        swapped = false;
+        for (size_t j = 0; j < size - i - 1; ++j)
+        {
+            if (planets[j + 1] < planets[j]) {
+                swap(planets[j], planets[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
 }
 
 void Planet::Add(Planet*& planets, int& size, const Planet& newPlanet) {
