@@ -4,7 +4,6 @@
 
 const int N_DEC = 4;
 
-//Fraction::Fraction() : numerator(0), denominator(1) {}
 
 Fraction::Fraction(int num, int den) : numerator(num), denominator(den) {
     if (denominator == 0) {
@@ -29,7 +28,7 @@ Fraction::Fraction(const char* str) {
     }
 
     if (denominator == 0) {
-        throw std::invalid_argument("Знаменатель не может быть равен нулю!!!");
+        throw std::invalid_argument("Ошибка формата ввода!!!");
     }
 
     simplify();
@@ -94,9 +93,33 @@ std::ostream& operator<<(std::ostream& os, const Fraction& f) {
 std::istream& operator>>(std::istream& is, Fraction& f) {
     char buffer[100];
     is.getline(buffer, 100);
-    f = Fraction(buffer);
+
+        for (int i = 0; buffer[i] != '\0'; i++) {
+            if (!(isdigit(buffer[i]) || buffer[i] == '/' || buffer[i] == ' ' || buffer[i] == '-' || buffer[i] == '+')) {
+                throw std::invalid_argument("Некорректный ввод: строка содержит недопустимые символы");
+            }
+        }
+
+        if (buffer[0] == '\0') {
+            throw std::invalid_argument("Пустая строка ввода");
+        }
+
+        f = Fraction(buffer);
+    // catch (const std::exception& e) {
+    //     is.setstate(std::ios::failbit);
+    //     std::cerr << "Ошибка: " << e.what() << std::endl;
+    // }
+
     return is;
 }
+
+
+// std::istream& operator>>(std::istream& is, Fraction& f) {
+//     char buffer[100];
+//     is.getline(buffer, 100);
+//     f = Fraction(buffer);
+//     return is;
+// }
 
 Fraction Fraction::operator+(const Fraction& other) const {
     int num = numerator * other.denominator + other.numerator * denominator;

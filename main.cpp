@@ -48,7 +48,7 @@ int main() {
         y += dbl + i + x;
         std::cout << "y=" << y << std::endl;
         return 0;
-    } catch (...) {
-        std::cout << "Знаменатель не может быть равен нулю!!!" << std::endl;
+    } catch (std::invalid_argument& e) {
+        std::cout << e.what() << std::endl;
     }
 }
