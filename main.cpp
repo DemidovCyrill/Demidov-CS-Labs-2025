@@ -1,54 +1,61 @@
-// Файл main.cpp
-// Разработать класс обыкновенных дробей fraction
-// (описание класса - файл fraction.h и реализацию методов класса - файл
-// fraction.cpp) для выполнения приведенной ниже функции main(), в которой
-// проверяются все предполагаемые варианты использования класса.
 #include <iostream>
-#include "Fraction/Fraction.h"
+#include "MyStack/MyStack.h"
+
+void Multipliers(int n, MyStack<int> &stack) {
+    if (n <= 1) {
+        return;
+    }
+    int divisor = 2;
+    while (n > 1) {
+        if (n % divisor == 0) {
+            stack.append(divisor);
+            n /= divisor;
+        } else {
+            divisor++;
+        }
+    }
+}
 
 int main() {
-    try {
-        setlocale(LC_ALL, "Russian");
 
-        std::cout << "ввод дроби с клавиатуры" << std::endl;
-        std::cout << "Введите дробь: \n";
-        Fraction z;
-        std::cin >> z;
-        std::cout << "z=" << z << std::endl;
-        std::cout << std::endl << std::endl << "проверка конструкторов" << std::endl;
-        Fraction fr1(10, 14), fr2;
-        std::cout << "fr2=" << fr2 << std::endl;
-        std::cout << "fr1=" << fr1 << std::endl;
-        Fraction fr = "-1 4/8";
-        std::cout << "fr=" << fr << std::endl;
-        Fraction x(z), y;
-        std::cout << "x=" << x << std::endl;
-        double dbl = -1.25;
-        Fraction f = dbl;
-        std::cout << "f=" << f << std::endl;
-        std::cout << std::endl << std::endl << "проверка перегруженной операции '+'" << std::endl;
-        y = x + z;
-        std::cout << "y=" << y << std::endl;
-        y += x;
-        f += dbl / 2;
-        std::cout << "f=" << f << std::endl;
-        y = x + dbl;
-        std::cout << "y=" << y << std::endl;
-        y = dbl + y;
-        std::cout << "y=" << y << std::endl;
-        y += dbl;
-        std::cout << "y=" << y << std::endl;
-        int i = 5;
-        y += i;
-        std::cout << "y=" << y << std::endl;
-        y = i + x;
-        std::cout << "y=" << y << std::endl;
-        y = x + i;
-        std::cout << "y=" << y << std::endl;
-        y += dbl + i + x;
-        std::cout << "y=" << y << std::endl;
-        return 0;
-    } catch (std::invalid_argument& e) {
-        std::cout << e.what() << std::endl;
+    std::cout << "Программа лабораторной работы №4 создаёт стек из простых множетелей числа и выводит его по возрастанию и убыванию" << std::endl;
+    std::cout << "Введите ваше число: ";
+    int number;
+    std::cin >> number;
+    std::cout << std::endl;
+    MyStack<int> stack;
+    Multipliers(number, stack);
+
+    MyStack<int> stackCopy = stack;
+    std::cout << number << " = ";
+    bool first = false;
+    while (!stack.empty()) {
+        if (first) {
+            std::cout << " * ";
+        }
+        std::cout << stack.get();
+        stack.pop();
+        first = true;
     }
+    std::cout << std::endl << std::endl;
+
+    MyStack<int> tempStack;
+    while (!stackCopy.empty()) {
+        tempStack.append(stackCopy.get());
+        stackCopy.pop();
+    }
+
+    std::cout << number << " = ";
+    first = true;
+    while (!tempStack.empty()) {
+        if (!first) {
+            std::cout << " * ";
+        }
+        std::cout << tempStack.get();
+        tempStack.pop();
+        first = false;
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
