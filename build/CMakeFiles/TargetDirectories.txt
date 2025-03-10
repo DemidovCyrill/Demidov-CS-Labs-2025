@@ -1,0 +1,6 @@
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/lab4.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/rebuild_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/MyStack/CMakeFiles/MyStack.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/MyStack/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/MyStack/CMakeFiles/rebuild_cache.dir

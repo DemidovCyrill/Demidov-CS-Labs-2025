@@ -1,6 +1,5 @@
 #ifndef MyStack_h
 #define MyStack_h
-#include "MyStack.cpp"
 
 template<class INF, class FRIEND>
 class ListNode
@@ -23,6 +22,8 @@ private:
         }
         return *this;
     }
+
+
     friend FRIEND;
 };
 
@@ -41,7 +42,7 @@ public:
 
     ~MyStack(void);
 
-    bool empty(void);
+    bool any(void);
 
     bool append(INF n);
 
@@ -50,4 +51,5 @@ public:
     INF get(void);
 };
 
+#include "MyStack.cpp"
 #endif

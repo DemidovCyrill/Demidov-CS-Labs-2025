@@ -29,7 +29,7 @@ int main() {
     MyStack<int> stackCopy = stack;
     std::cout << number << " = ";
     bool first = false;
-    while (!stack.empty()) {
+    while (!stack.any()) {
         if (first) {
             std::cout << " * ";
         }
@@ -40,14 +40,14 @@ int main() {
     std::cout << std::endl << std::endl;
 
     MyStack<int> tempStack;
-    while (!stackCopy.empty()) {
+    while (!stackCopy.any()) {
         tempStack.append(stackCopy.get());
         stackCopy.pop();
     }
 
     std::cout << number << " = ";
     first = true;
-    while (!tempStack.empty()) {
+    while (!tempStack.any()) {
         if (!first) {
             std::cout << " * ";
         }

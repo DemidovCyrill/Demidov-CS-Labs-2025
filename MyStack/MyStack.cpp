@@ -1,4 +1,5 @@
-#include <iostream>
+#ifndef MyStack_cpp
+#define MyStack_cpp
 #include "MyStack.h"
 
 template<class INF>
@@ -6,47 +7,49 @@ MyStack<INF>::MyStack(void) {
     top = nullptr;
 }
 
-// Конструктор копирования
+
 template<class INF>
 MyStack<INF>::MyStack(const MyStack& other) {
     top = nullptr;
+
     if (other.top != nullptr) {
-        // Создаем временный стек для инвертирования порядка
+
         MyStack<INF> temp;
         Node* current = other.top;
-        // Сначала копируем все элементы в обратном порядке
+
         while (current != nullptr) {
             temp.append(current->d);
-            current = current->next;
+            current = current -> next;
         }
-        // Затем копируем из временного стека в правильном порядке
-        while (!temp.empty()) {
+
+
+        while (!temp.any()) {
             append(temp.get());
             temp.pop();
         }
     }
 }
 
-// Перегрузка оператора =
+
 template<class INF>
 MyStack<INF>& MyStack<INF>::operator=(const MyStack& other) {
     if (this != &other) {
-        // Очищаем текущий стек
-        while (!empty()) {
+
+        while (!any()) {
             pop();
         }
 
         if (other.top != nullptr) {
-            // Создаем временный стек для инвертирования порядка
+
             MyStack<INF> temp;
             Node* current = other.top;
-            // Сначала копируем все элементы в обратном порядке
+
             while (current != nullptr) {
                 temp.append(current->d);
                 current = current->next;
             }
-            // Затем копируем из временного стека в правильном порядке
-            while (!temp.empty()) {
+
+            while (!temp.any()) {
                 append(temp.get());
                 temp.pop();
             }
@@ -55,49 +58,51 @@ MyStack<INF>& MyStack<INF>::operator=(const MyStack& other) {
     return *this;
 }
 
-// Деструктор
+
 template<class INF>
 MyStack<INF>::~MyStack(void) {
-    while (!empty()) {
+    while (!any()) {
         pop();
     }
 }
 
-// Проверка на пустоту
+
 template<class INF>
-bool MyStack<INF>::empty(void) {
+bool MyStack<INF>::any(void) {
     return top == nullptr;
 }
 
-// Добавление элемента в стек
+
 template<class INF>
 bool MyStack<INF>::append(INF n) {
     Node* newNode = new Node(n);
     if (newNode == nullptr) {
-        return false; // Не удалось выделить память
+        return false;
     }
-    newNode->next = top;
+    newNode -> next = top;
     top = newNode;
     return true;
 }
 
-// Удаление элемента из стека
+
 template<class INF>
 bool MyStack<INF>::pop(void) {
-    if (empty()) {
-        return false; // Стек пуст
+    if (any()) {
+        return false;
     }
     Node* temp = top;
-    top = top->next;
+    top = top -> next;
     delete temp;
     return true;
 }
 
-// Получение значения верхнего элемента
+
 template<class INF>
 INF MyStack<INF>::get(void) {
-    if (empty()) {
-        return INF(); // Возвращаем значение по умолчанию
+    if (any()) {
+        return INF();
     }
-    return top->d;
+    return top -> d;
 }
+
+#endif
