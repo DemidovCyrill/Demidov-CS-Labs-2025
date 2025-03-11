@@ -105,21 +105,10 @@ std::istream& operator>>(std::istream& is, Fraction& f) {
         }
 
         f = Fraction(buffer);
-    // catch (const std::exception& e) {
-    //     is.setstate(std::ios::failbit);
-    //     std::cerr << "Ошибка: " << e.what() << std::endl;
-    // }
 
     return is;
 }
 
-
-// std::istream& operator>>(std::istream& is, Fraction& f) {
-//     char buffer[100];
-//     is.getline(buffer, 100);
-//     f = Fraction(buffer);
-//     return is;
-// }
 
 Fraction Fraction::operator+(const Fraction& other) const {
     int num = numerator * other.denominator + other.numerator * denominator;
