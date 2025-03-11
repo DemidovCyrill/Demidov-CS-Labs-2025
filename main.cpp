@@ -1,60 +1,36 @@
 #include <iostream>
-#include "MyStack/MyStack.h"
-
-void Multipliers(int n, MyStack<int> &stack) {
-    if (n <= 1) {
-        return;
-    }
-    int divisor = 2;
-    while (n > 1) {
-        if (n % divisor == 0) {
-            stack.append(divisor);
-            n /= divisor;
-        } else {
-            divisor++;
-        }
-    }
-}
+#include "MySet/MySet.h"
+#include "MyVector/MyVector.h"
 
 int main() {
+    MySet<int> set1;
+    set1.add_element(1);
+    set1.add_element(4);
+    set1.add_element(5);
+    set1.add_element(6);
 
-    std::cout << "Программа лабораторной работы №4 создаёт стек из простых множетелей числа и выводит его по возрастанию и убыванию" << std::endl;
-    std::cout << "Введите ваше число: ";
-    int number;
-    std::cin >> number;
+    MySet<int> set2;
+    set2.add_element(1);
+    set2.add_element(2);
+    set2.add_element(3);
+    set2.add_element(4);
+
+    MySet<int> union_set = set1 + set2;
+    MySet<int> intersection_set = set1 * set2;
+    MySet<int> difference_set = set1 - set2;
+
+    std::cout << "Union: ";
+    for (size_t i = 0; i < union_set.get_size(); ++i)
+        std::cout << union_set[i] << " ";
     std::cout << std::endl;
-    MyStack<int> stack;
-    Multipliers(number, stack);
+    std::cout << "Intersection: ";
+    for (size_t i = 0; i < intersection_set.get_size(); ++i)
+        std::cout << intersection_set[i] << " ";
+    std::cout << std::endl;
 
-    MyStack<int> stackCopy = stack;
-    std::cout << number << " = ";
-    bool first = false;
-    while (!stack.any()) {
-        if (first) {
-            std::cout << " * ";
-        }
-        std::cout << stack.get();
-        stack.pop();
-        first = true;
-    }
-    std::cout << std::endl << std::endl;
-
-    MyStack<int> tempStack;
-    while (!stackCopy.any()) {
-        tempStack.append(stackCopy.get());
-        stackCopy.pop();
-    }
-
-    std::cout << number << " = ";
-    first = true;
-    while (!tempStack.any()) {
-        if (!first) {
-            std::cout << " * ";
-        }
-        std::cout << tempStack.get();
-        tempStack.pop();
-        first = false;
-    }
+    std::cout << "Difference: ";
+    for (size_t i = 0; i < difference_set.get_size(); ++i)
+        std::cout << difference_set[i] << " ";
     std::cout << std::endl;
 
     return 0;
