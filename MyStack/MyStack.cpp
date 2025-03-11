@@ -105,4 +105,18 @@ INF MyStack<INF>::get(void) {
     return top -> d;
 }
 
+std::ofstream& operator<<(std::ofstream& os, const MyStack<int>& stack) {
+    MyStack<int> stackCopy = stack;
+        bool first = false;
+        while (!stack.any()) {
+            if (first) {
+                os << " * ";
+            }
+            std::cout << stack.get();
+            stack.pop();
+            first = true;
+        }
+    return os;
+}
+
 #endif
