@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "MyStack/MyStack.h"
 
 void Multipliers(int n, MyStack<int> &stack) {
@@ -25,47 +26,32 @@ void Multipliers(int n, MyStack<int> &stack) {
 
 
 void ExtraTask() {
-    std::cout << "\n Демонстрация работы со стеками символов:\n";
+    std::cout << "\nДемонстрация работы со стеками символов:\n";
 
-    std::cout << "\n1. Простой стек:\n";
+    std::cout << "\n1. Простой стек: ";
     MyStack<char> stackABC;
     stackABC.append('A');
     stackABC.append('B');
     stackABC.append('C');
+    std::cout << stackABC;
 
-    MyStack<char> temp1 = stackABC;
-    while (!temp1.any()) {
-        std::cout << temp1.get() << " ";
-        temp1.pop();
-    }
-    std::cout << std::endl;
-
-    std::cout << "\n2. Стек с использованием конструктора копирования:\n";
+    std::cout << "\n2. Стек с использованием конструктора копирования: ";
     MyStack<char> stack2;
     stack2.append('A');
     stack2.append('B');
     stack2.append('C');
+    std::cout << stack2;
 
-    MyStack<char> stack2Copy(stack2);
-    while (!stack2Copy.any()) {
-        std::cout << stack2Copy.get() << " ";
-        stack2Copy.pop();
-    }
-    std::cout << std::endl;
-
-    std::cout << "\n3. Стек с использованием оператора присваивания:\n";
+    std::cout << "\n3. Стек с использованием оператора присваивания: ";
     MyStack<char> stack3;
-    stack3.append('A');
-    stack3.append('B');
     stack3.append('C');
+    stack3.append('B');
+    stack3.append('A');
+    std::cout << stack3;
 
     MyStack<char> stack3Assigned;
     stack3Assigned = stack3;
-    while (!stack3Assigned.any()) {
-        std::cout << stack3Assigned.get() << " ";
-        stack3Assigned.pop();
-    }
-    std::cout << std::endl;
+    // std::cout << stack3Assigned;
 }
 
 
@@ -100,16 +86,7 @@ int main() {
         }
 
         std::cout << number << " = ";
-        first = true;
-        while (!tempStack.any()) {
-            if (!first) {
-                std::cout << " * ";
-            }
-            std::cout << tempStack.get();
-            tempStack.pop();
-            first = false;
-        }
-        std::cout << std::endl;
+        std::cout << tempStack;
 
 
         ExtraTask();

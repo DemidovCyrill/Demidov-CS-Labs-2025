@@ -33,6 +33,7 @@ class MyStack {
     typedef class ListNode<INF, MyStack<INF>> Node;
     Node *top;
 public:
+
     MyStack(void);
 
     MyStack(const MyStack& other);

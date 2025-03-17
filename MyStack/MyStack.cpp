@@ -1,6 +1,8 @@
 #ifndef MyStack_cpp
 #define MyStack_cpp
 #include "MyStack.h"
+#include <fstream>
+#include <iostream>
 
 template<class INF>
 MyStack<INF>::MyStack(void) {
@@ -105,18 +107,37 @@ INF MyStack<INF>::get(void) {
     return top -> d;
 }
 
-std::ofstream& operator<<(std::ofstream& os, const MyStack<int>& stack) {
+std::ostream& operator<<(std::ostream& os, const MyStack<int>& stack) {
     MyStack<int> stackCopy = stack;
-        bool first = false;
-        while (!stack.any()) {
-            if (first) {
-                os << " * ";
-            }
-            std::cout << stack.get();
-            stack.pop();
-            first = true;
+    bool first = false;
+    while (!stackCopy.any()) {
+        if (first) {
+            os << " * ";
         }
+        os << stackCopy.get();
+        stackCopy.pop();
+        first = true;
+    }
+    std::cout << std::endl;
     return os;
 }
+
+std::ostream& operator<<(std::ostream& os, const MyStack<char>& stack) {
+    MyStack<char> stackCopy = stack;
+    bool first = false;
+    while (!stackCopy.any()) {
+        if (first) {
+            os << " ";
+        }
+        os << stackCopy.get();
+        stackCopy.pop();
+        first = true;
+    }
+    std::cout << std::endl;
+    return os;
+}
+
+template<class INF>
+std::ostream& operator<<(std::ostream& os, const MyStack<INF>& stack);
 
 #endif

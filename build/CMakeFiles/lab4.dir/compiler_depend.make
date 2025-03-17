@@ -17,6 +17,7 @@ CMakeFiles/lab4.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/c++/13/bits/basic_string.tcc \
   /usr/include/c++/13/bits/char_traits.h \
   /usr/include/c++/13/bits/charconv.h \
+  /usr/include/c++/13/bits/codecvt.h \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
@@ -24,6 +25,7 @@ CMakeFiles/lab4.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -79,6 +81,7 @@ CMakeFiles/lab4.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/c++/13/ext/numeric_traits.h \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/fstream \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
@@ -171,8 +174,10 @@ CMakeFiles/lab4.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -256,19 +261,17 @@ CMakeFiles/lab4.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
-/usr/include/c++/13/ext/type_traits.h:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/c++/13/ext/string_conversions.h:
-
-/usr/include/c++/13/bits/stl_algobase.h:
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/c++/13/ext/alloc_traits.h:
 
@@ -292,6 +295,12 @@ CMakeFiles/lab4.dir/main.cpp.o:
 
 /usr/include/c++/13/cstdio:
 
+/usr/include/c++/13/bits/stl_algobase.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/c++/13/ext/string_conversions.h:
+
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/13/debug/assertions.h:
@@ -301,10 +310,6 @@ CMakeFiles/lab4.dir/main.cpp.o:
 /usr/include/c++/13/bits/streambuf_iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-/usr/include/c++/13/bits/utility.h:
-
-/usr/include/c++/13/bits/stl_construct.h:
 
 /usr/include/c++/13/bits/streambuf.tcc:
 
@@ -328,6 +333,10 @@ CMakeFiles/lab4.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/predefined_ops.h:
 
+/usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/c++/13/bits/utility.h:
+
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 
 /usr/include/c++/13/bits/ostream_insert.h:
@@ -336,13 +345,27 @@ CMakeFiles/lab4.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/move.h:
 
-/usr/include/c++/13/bits/basic_ios.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+/usr/include/c++/13/bits/memoryfwd.h:
 
 /usr/include/c++/13/bits/basic_string.tcc:
 
-/usr/include/c++/13/bits/memoryfwd.h:
+/usr/include/c++/13/bits/stl_function.h:
+
+/usr/include/c++/13/bits/ostream.tcc:
+
+/usr/include/c++/13/bits/memory_resource.h:
+
+/usr/include/c++/13/bits/stl_iterator.h:
+
+/home/dem/Lab/Demidov-CS-Labs-2025/MyStack/MyStack.cpp:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
+
+/usr/include/c++/13/bits/exception.h:
+
+/usr/include/c++/13/bits/basic_ios.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
 /usr/include/c++/13/bits/basic_ios.h:
 
@@ -351,6 +374,8 @@ CMakeFiles/lab4.dir/main.cpp.o:
 /usr/include/c++/13/bits/alloc_traits.h:
 
 /usr/include/c++/13/exception:
+
+/usr/include/c++/13/fstream:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
 
@@ -370,20 +395,6 @@ CMakeFiles/lab4.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/localefwd.h:
 
-/usr/include/c++/13/bits/stl_function.h:
-
-/usr/include/c++/13/bits/ostream.tcc:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/c++/13/bits/stl_iterator.h:
-
-/home/dem/Lab/Demidov-CS-Labs-2025/MyStack/MyStack.cpp:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
-
-/usr/include/c++/13/bits/exception.h:
-
 /usr/include/c++/13/bits/charconv.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
@@ -391,6 +402,10 @@ CMakeFiles/lab4.dir/main.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/13/bits/exception_ptr.h:
+
+/usr/include/c++/13/new:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/c++/13/bits/basic_string.h:
 
@@ -407,6 +422,8 @@ CMakeFiles/lab4.dir/main.cpp.o:
 /usr/include/c++/13/bits/locale_facets.h:
 
 /usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/c++/13/bits/codecvt.h:
 
 /usr/include/stdio.h:
 
@@ -456,6 +473,8 @@ CMakeFiles/lab4.dir/main.cpp.o:
 
 /usr/include/c++/13/ext/atomicity.h:
 
+/usr/include/c++/13/bits/fstream.tcc:
+
 /usr/include/c++/13/bits/stl_pair.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
@@ -467,6 +486,8 @@ CMakeFiles/lab4.dir/main.cpp.o:
 /usr/include/c++/13/clocale:
 
 /usr/include/c++/13/bits/locale_classes.tcc:
+
+/usr/include/c++/13/ext/type_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
@@ -558,10 +579,6 @@ CMakeFiles/lab4.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
-/usr/include/c++/13/new:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
@@ -619,5 +636,3 @@ CMakeFiles/lab4.dir/main.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
