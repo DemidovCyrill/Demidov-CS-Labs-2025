@@ -1,3 +1,5 @@
+#ifndef MYSET_CPP
+#define MYSET_CPP
 #include "MySet.h"
 
 template <typename T>
@@ -15,7 +17,7 @@ void MySet<T>::add_element(const T& element) {
 
 template <typename T>
 void MySet<T>::delete_element(const T& element) {
-    int index = this->find(element);
+    int index = this -> find(element);
     if (index != -1) {
         MyVector<T>::delete_element(index);
     }
@@ -56,3 +58,5 @@ int MySet<T>::q_find(const T& element, int left, int right) const {
     if (this->pdata[mid] > element) return q_find(element, left, mid - 1);
     return q_find(element, mid + 1, right);
 }
+
+#endif // MYSET_CPP

@@ -1,3 +1,5 @@
+#ifndef MYVECTOR_CPP
+#define MYVECTOR_CPP
 #include "MyVector.h"
 
 template <typename T>
@@ -79,3 +81,5 @@ template <typename T>
 void MyVector<T>::sort() {
     std::sort(pdata, pdata + size);
 }
+
+#endif // MYVECTOR_CPP
