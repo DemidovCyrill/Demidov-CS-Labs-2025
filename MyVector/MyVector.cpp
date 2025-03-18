@@ -1,10 +1,10 @@
 #include "MyVector.h"
 
 template <typename T>
-void MyVector <T>::resize(size_t new_size) {
+void MyVector<T>::resize(size_t new_size) {
     if (new_size < 1) new_size = 1;
     T* new_data = new T[new_size];
-    std::copy(pdata, pdata + std::min(size, new_size), new_data);
+    std::copy(pdata, pdata + size, new_data);
     delete[] pdata;
     pdata = new_data;
     max_size = new_size;
@@ -65,22 +65,14 @@ int MyVector<T>::find(const T& element) const {
 
 template <typename T>
 T& MyVector<T>::operator[](size_t index) {
+    if (index >= size) throw std::out_of_range("Index out of range");
     return pdata[index];
 }
 
 template <typename T>
 const T& MyVector<T>::operator[](size_t index) const {
+    if (index >= size) throw std::out_of_range("Index out of range");
     return pdata[index];
-}
-
-template <typename T>
-size_t MyVector<T>::get_size() const {
-    return size;
-}
-
-template <typename T>
-size_t MyVector<T>::get_max_size() const {
-    return max_size;
 }
 
 template <typename T>
