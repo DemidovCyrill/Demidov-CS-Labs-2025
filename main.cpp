@@ -44,9 +44,9 @@ void ExtraTask() {
 
     std::cout << "\n3. Стек с использованием оператора присваивания: ";
     MyStack<char> stack3;
-    stack3.append('C');
-    stack3.append('B');
     stack3.append('A');
+    stack3.append('B');
+    stack3.append('C');
     std::cout << stack3;
 
     MyStack<char> stack3Assigned;

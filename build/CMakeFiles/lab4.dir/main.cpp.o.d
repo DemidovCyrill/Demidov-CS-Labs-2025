@@ -153,6 +153,4 @@ CMakeFiles/lab4.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc \
- /home/dem/Lab/Demidov-CS-Labs-2025/MyStack/MyStack.h \
- /home/dem/Lab/Demidov-CS-Labs-2025/MyStack/MyStack.cpp \
  /home/dem/Lab/Demidov-CS-Labs-2025/MyStack/MyStack.h
