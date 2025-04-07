@@ -1,0 +1,6 @@
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/lab_6.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/rebuild_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/term/CMakeFiles/term.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/term/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/term/CMakeFiles/rebuild_cache.dir
