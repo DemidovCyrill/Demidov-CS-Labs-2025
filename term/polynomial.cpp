@@ -1,10 +1,8 @@
-// polynomial.cpp
 #include "polynomial.h"
 #include <sstream>
 #include <string>
 #include <cctype>
 
-// Вспомогательные методы
 void Polynomial::resize(int newCapacity) {
     Term* newPoly = new Term[newCapacity];
     for (int i = 0; i < size; ++i) {
@@ -17,16 +15,13 @@ void Polynomial::resize(int newCapacity) {
 
 void Polynomial::addTerm(const Term& term) {
     if (term.coefficient == 0) {
-        return;  // Не добавляем нулевые термы
+        return;
     }
 
-    // Проверяем, существует ли терм с такой же степенью
     for (int i = 0; i < size; ++i) {
         if (poly[i].exponent == term.exponent) {
-            // Складываем коэффициенты, если степени совпадают
             poly[i].coefficient += term.coefficient;
 
-            // Если коэффициент становится нулевым, удаляем терм
             if (poly[i].coefficient == 0) {
                 for (int j = i; j < size - 1; ++j) {
                     poly[j] = poly[j + 1];
@@ -34,29 +29,22 @@ void Polynomial::addTerm(const Term& term) {
                 --size;
             }
 
-            // Обновляем степень, если необходимо
             updateDegree();
             sortTerms();
             return;
         }
     }
 
-    // Если терм с совпадающей степенью не найден
-
-    // Проверяем наличие свободного места
     if (size == capacity) {
         resize(capacity * 2);
     }
 
-    // Добавляем новый терм
     poly[size++] = term;
 
-    // Обновляем степень, если необходимо
     if (term.exponent > degree) {
         degree = term.exponent;
     }
 
-    // Сортируем термы
     sortTerms();
 }
 
@@ -70,14 +58,13 @@ void Polynomial::updateDegree() {
 }
 
 void Polynomial::sortTerms() {
-    // Простая сортировка пузырьком
     for (int i = 0; i < size - 1; ++i) {
         for (int j = 0; j < size - i - 1; ++j) {
             bool shouldSwap;
 
             if (order_ == ASCENDING) {
                 shouldSwap = poly[j].exponent > poly[j + 1].exponent;
-            } else {  // DESCENDING
+            } else {
                 shouldSwap = poly[j].exponent < poly[j + 1].exponent;
             }
 
@@ -90,7 +77,6 @@ void Polynomial::sortTerms() {
     }
 }
 
-// Конструкторы
 Polynomial::Polynomial() : poly(new Term[10]), size(0), capacity(10), degree(0), order_(DESCENDING) {}
 
 Polynomial::Polynomial(int constant) : poly(new Term[10]), size(0), capacity(10), degree(0), order_(DESCENDING) {
@@ -115,7 +101,6 @@ Polynomial::~Polynomial() {
     delete[] poly;
 }
 
-// Операторы присваивания
 Polynomial& Polynomial::operator=(const Polynomial& other) {
     if (this != &other) {
         delete[] poly;
@@ -154,7 +139,6 @@ Polynomial& Polynomial::operator*=(const Polynomial& other) {
     return *this;
 }
 
-// Дружественные операторы
 Polynomial operator+(const Polynomial& p1, const Polynomial& p2) {
     Polynomial result = p1;
     result += p2;
@@ -167,23 +151,18 @@ Polynomial operator*(const Polynomial& p1, const Polynomial& p2) {
     return result;
 }
 
-// Операторы потоков
 std::istream& operator>>(std::istream& is, Polynomial& poly) {
-    // Очищаем существующий полином
     poly = Polynomial();
 
     std::string input;
     std::getline(is, input);
 
-    // Добавляем '+' в начале, если нет знака
     if (!input.empty() && input[0] != '+' && input[0] != '-') {
         input = "+" + input;
     }
 
-    // Разбираем ввод
     size_t pos = 0;
     while (pos < input.length()) {
-        // Пропускаем пробелы
         while (pos < input.length() && std::isspace(input[pos])) {
             pos++;
         }
@@ -192,16 +171,13 @@ std::istream& operator>>(std::istream& is, Polynomial& poly) {
             break;
         }
 
-        // Получаем знак
         bool isNegative = (input[pos] == '-');
         pos++;
 
-        // Пропускаем пробелы после знака
         while (pos < input.length() && std::isspace(input[pos])) {
             pos++;
         }
 
-        // Находим конец терма (следующий + или -)
         size_t termStart = pos;
         size_t termEnd = pos;
 
@@ -212,23 +188,18 @@ std::istream& operator>>(std::istream& is, Polynomial& poly) {
             termEnd++;
         }
 
-        // Извлекаем строку терма
         std::string termStr = input.substr(termStart, termEnd - termStart);
 
-        // Разбираем терм
         std::istringstream termStream(termStr);
         Term term;
         termStream >> term;
 
-        // Применяем знак
         if (isNegative) {
             term.setCoefficient(-term.getCoefficient());
         }
 
-        // Добавляем терм в полином
         poly.addTerm(term);
 
-        // Переходим к следующему терму
         pos = termEnd;
     }
 
@@ -246,15 +217,13 @@ std::ostream& operator<<(std::ostream& os, const Polynomial& poly) {
         const Term& term = poly.poly[i];
 
         if (term.getCoefficient() == 0) {
-            continue;  // Пропускаем нулевые термы
+            continue;
         }
 
         if (firstTerm) {
-            // Первый терм не требует пробела перед ним
             firstTerm = false;
 
             if (term.getCoefficient() < 0) {
-                // Отрицательный первый терм
                 if (term.getCoefficient() == -1) {
                     if (term.getExponent() == 0) {
                         os << "-1";
@@ -273,7 +242,6 @@ std::ostream& operator<<(std::ostream& os, const Polynomial& poly) {
                     }
                 }
             } else {
-                // Положительный первый терм
                 if (term.getCoefficient() == 1) {
                     if (term.getExponent() == 0) {
                         os << "1";
@@ -293,7 +261,6 @@ std::ostream& operator<<(std::ostream& os, const Polynomial& poly) {
                 }
             }
         } else {
-            // Последующие термы требуют знака и пробела
             if (term.getCoefficient() > 0) {
                 os << " + ";
 
