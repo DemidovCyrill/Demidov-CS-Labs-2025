@@ -57,7 +57,7 @@ int main() {
     std::cout << "Выберите режим:" << std::endl;
     std::cout << "1. Демонстрационный режим" << std::endl;
     std::cout << "2. Интерактивный режим" << std::endl;
-    std::cout << "Выбор: ";
+    std::cout << "Выбор: "<< std::endl;
     std::cin >> choice1;
 
     if (choice1 == '1') {
@@ -65,7 +65,7 @@ int main() {
         std::cout << "Выберите режим:" << std::endl;
         std::cout << "1. Режим Term" << std::endl;
         std::cout << "2. Режим Polynomial" << std::endl;
-        std::cout << "Выбор: ";
+        std::cout << "Выбор: "<< std::endl;
         std::cin >> choice2;
 
         if (choice2 == '1')
@@ -78,7 +78,7 @@ int main() {
         std::cout << "Выберите режим:" << std::endl;
         std::cout << "1. Режим Term" << std::endl;
         std::cout << "2. Режим Polynomial" << std::endl;
-        std::cout << "Выбор: ";
+        std::cout << "Выбор: "<< std::endl;
         std::cin >> choice2;
 
         if (choice2 == '1') {
@@ -104,17 +104,16 @@ int main() {
     } else if (choice2 == '2') {
 
             std::cout << "=== Операции с полиномами ===" << std::endl;
-            std::cout << "Введите первый полином: ";
+            std::cout << "Введите первый полином: " << std::endl;
             std::cin.ignore();
             Polynomial p1;
             std::cin >> p1;
-            std::cout << "Распознанный полином: " << p1 << std::endl;
+            std::cout << "Распознанный полином: " << std::endl << p1 << std::endl;
 
-            std::cout << "Введите второй полином: ";
+            std::cout << "Введите второй полином: " << std::endl;
             Polynomial p2;
-            std::cin.ignore();
             std::cin >> p2;
-            std::cout << "Распознанный полином: " << p2 << std::endl;
+            std::cout << "Распознанный полином: " << std::endl << p2 << std::endl;
 
             Polynomial p3 = p1 + p2;
             std::cout << "p3 = p1 + p2 = " << p3 << std::endl;
@@ -133,7 +132,7 @@ int main() {
     char choice;
     std::cout << "Для продолжения нажмите 1" << std::endl;
     std::cout << "Для выжода нажмите любую клавишу" << std::endl;
-    std::cout << "Выбор: ";
+    std::cout << "Выбор: "<< std::endl;
     std::cin >> choice;
     if (choice == '1')
         return main();

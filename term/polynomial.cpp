@@ -157,8 +157,13 @@ std::istream& operator>>(std::istream& is, Polynomial& poly) {
     std::string input;
     std::getline(is, input);
 
+    if (input == ""){
+        return is;
+    }
+
+    input = "    " + input + " + 0    ";
     if (!input.empty() && input[0] != '+' && input[0] != '-') {
-        input = "+" + input;
+        input = "     +" + input;
     }
 
     size_t pos = 0;
