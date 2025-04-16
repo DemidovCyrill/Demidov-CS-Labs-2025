@@ -4,7 +4,7 @@
 #include "../MyVector/MyVector.h"
 #include <algorithm>
 
-template <typename T>
+template <typename T = char>
 class MySet : public MyVector<T> {
 private:
     int q_find(const T& element, int left, int right) const;

@@ -1,9 +1,0 @@
-/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/lab5.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/edit_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/rebuild_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/MySet/CMakeFiles/MySet.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/MySet/CMakeFiles/edit_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/MySet/CMakeFiles/rebuild_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/MyVector/CMakeFiles/MyVector.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/MyVector/CMakeFiles/edit_cache.dir
-/home/dem/Lab/Demidov-CS-Labs-2025/build/MyVector/CMakeFiles/rebuild_cache.dir

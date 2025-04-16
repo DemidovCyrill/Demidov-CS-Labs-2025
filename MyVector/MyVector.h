@@ -4,7 +4,7 @@
 #include <iostream>
 #include <algorithm>
 
-template <typename T>
+template <typename T = char>
 class MyVector {
 protected:
     T* pdata;
@@ -16,6 +16,8 @@ protected:
 public:
     MyVector(size_t initial_size = 1);
     MyVector(const MyVector& other);
+    MyVector(const T& first_element);
+    // MyVector() = default;
     ~MyVector();
     MyVector& operator=(const MyVector& other);
 
@@ -31,6 +33,14 @@ public:
 
     void sort();
 };
+
+
+template <typename T>
+MyVector<T>::MyVector(const T& first_element)
+    : size(1), max_size(1) {
+    pdata = new T[max_size];
+    pdata[0] = first_element;
+}
 
 
 template <typename T>
@@ -111,6 +121,17 @@ const T& MyVector<T>::operator[](size_t index) const {
 template <typename T>
 void MyVector<T>::sort() {
     std::sort(pdata, pdata + size);
+}
+
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const MyVector<T>& set) {
+    bool first = false;
+    std::cout << "\n{";
+    for (size_t i = 0; i < set.get_size() - 1; ++i)
+        std::cout << set[i] << ", ";
+    std::cout << set[set.get_size()-1] << "}" << std::endl << std::endl;
+    return os;
 }
 
 #endif // MYVECTOR_H
