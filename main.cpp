@@ -40,7 +40,7 @@
 int main() {
     setlocale(LC_ALL, "Russian");
 
-    MyVector v("Hello!");
+    MyVector<char*> v("Hello!");
     v.add_element("Привет!");
     v.add_element("Привет!");
     v.add_element("Привет!");
@@ -51,7 +51,7 @@ int main() {
     v.add_element("Привет!");
     v.add_element("Привет!");
     std::cout << "Вектор v: " << v << std::endl;
-    MyVector v1 = v;
+    MyVector<char*> v1 = v;
     std::cout << "Вектор v1: " << v1 << std::endl;
     for (int i = 0; i < MAX_SIZE; i++)
         v1.delete_element(0);
