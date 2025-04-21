@@ -2,7 +2,7 @@
 	"InstallScripts" : 
 	[
 		"/home/dem/Lab/Demidov-CS-Labs-2025/build/cmake_install.cmake",
-		"/home/dem/Lab/Demidov-CS-Labs-2025/build/MySet/cmake_install.cmake",
+		"/home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition/cmake_install.cmake",
 		"/home/dem/Lab/Demidov-CS-Labs-2025/build/MyVector/cmake_install.cmake"
 	],
 	"Parallel" : false

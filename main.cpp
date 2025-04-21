@@ -1,119 +1,212 @@
-// #include <iostream>
-// #include "MySet/MySet.h"
-// #include "MyVector/MyVector.h"
-
-// int main() {
-//     MySet<int> set1;
-//     set1.add_element(1);
-//     set1.add_element(4);
-//     set1.add_element(5);
-//     set1.add_element(6);
-
-//     MySet<int> set2;
-//     set2.add_element(1);
-//     set2.add_element(2);
-//     set2.add_element(3);
-//     set2.add_element(4);
-
-//     std::cout << "Элементы множества 1: " << set1;
-//     std::cout << "Элементы множества 2: " << set2;
-
-//     MySet<int> union_set = set1 + set2;
-//     MySet<int> intersection_set = set1 * set2;
-//     MySet<int> difference_set = set1 - set2;
-
-//     std::cout << "Сумма множеств: " << union_set;
-
-//     std::cout << "Пересечение множеств: " << intersection_set;
-
-//     std::cout << "Разность множеств: " << difference_set;
-
-//     return 0;
-// }
-
-/////////////////////////////////////////////////
-
 #include <iostream>
+#include <cstdlib>
 #include "MyVector/MyVector.h"
-#include "MySet/MySet.h"
+#include "PrintedEdition/PrintedEdition.h"
+#include "PrintedEdition/Magazine.h"
+#include "PrintedEdition/Book.h"
+#include "PrintedEdition/Textbook.h"
 
-int main() {
-    setlocale(LC_ALL, "Russian");
+// Функция для вывода содержимого контейнера
+void print(const MyVector<PrintedEdition*>& container) {
+    std::cout << "\n===== Содержимое контейнера =====\n";
+    if (container.get_size() == 0) {
+        std::cout << "Контейнер пуст" << std::endl;
+        return;
+    }
 
-    MyVector<char*> v("Hello!");
-    v.add_element("Привет!");
-    v.add_element("Привет!");
-    v.add_element("Привет!");
-    v.add_element("Привет!");
-    v.add_element("Привет!");
-    std::cout << "Вектор v: " << v << std::endl;
-    v.add_element("Привет!");
-    v.add_element("Привет!");
-    v.add_element("Привет!");
-    std::cout << "Вектор v: " << v << std::endl;
-    MyVector<char*> v1 = v;
-    std::cout << "Вектор v1: " << v1 << std::endl;
-    for (int i = 0; i < MAX_SIZE; i++)
-        v1.delete_element(0);
-    std::cout << "Вектор v1: " << v1 << std::endl;
-    MySet s("Yes"), s1, s2;
-    s.add_element("Привет!");
-    s.add_element("No");
-    char *str = "Hello!";
-    s.add_element(str);
-    std::cout << "Множество s: " << s << std::endl;
-    s1.add_element("Cat");
-    s1.add_element("No");
-    s1.add_element("Привет!");
-    std::cout << "Множество s1: " << s1 << std::endl;
-    s2 = s1 - s;
-    std::cout << "Множество s2=s1-s: " << s2 << std::endl;
-    std::cout << "Множество s1: " << s1 << std::endl;
-    std::cout << "Множество s: " << s << std::endl;
-    s2 = s - s1;
-    std::cout << "Множество s2=s-s1: " << s2 << std::endl;
-    std::cout << "Множество s1: " << s1 << std::endl;
-    std::cout << "Множество s: " << s << std::endl;
-    s2 = s1 + s;
-    std::cout << "Множество s2=s1+s: " << s2 << std::endl;
-    std::cout << "Множество s1: " << s1 << std::endl;
-    std::cout << "Множество s: " << s << std::endl;
-    s2 = s1 * s;
-    std::cout << "Множество s2=s1*s: " << s2 << std::endl;
-    std::cout << "Множество s1: " << s1 << std::endl;
-    std::cout << "Множество s: " << s << std::endl;
-    MySet s3 = s2;
-    std::cout << "Множество s3=s2: " << s3 << std::endl;
-    if (s3 == s2)
-        std::cout << "Множество s3=s2\n";
-    else
-        std::cout << "Множество s3!=s2\n";
-    if (s3 == s1)
-        std::cout << "Множество s3=s1\n";
-    else
-        std::cout << "Множество s3!=s1\n";
-    if (s1 == s3)
-        std::cout << "Множество s1=s3\n";
-    else
-        std::cout << "Множество s1!=s3\n";
-    return 0;
+    for (size_t i = 0; i < container.get_size(); ++i) {
+        std::cout << "\nЭлемент [" << i << "]: " << std::endl;
+        container[i]->show();
+    }
 }
 
+// Функция для удаления объекта по индексу
+void remove(MyVector<PrintedEdition*>& container, size_t index) {
+    if (index >= container.get_size()) {
+        std::cout << "Ошибка: индекс выходит за пределы контейнера" << std::endl;
+        return;
+    }
 
-/////////////////////////////////////////////////
+    delete container[index]; // Удаляем сам объект
+    container.delete_element(index); // Удаляем указатель из контейнера
+    std::cout << "Элемент по индексу " << index << " удален" << std::endl;
+}
 
-// #include <iostream>
-// #include "MyVector/MyVector.h"
-// #include "MySet/MySet.h"
+// Функция для очистки контейнера
+void clear(MyVector<PrintedEdition*>& container) {
+    for (size_t i = 0; i < container.get_size(); ++i) {
+        delete container[i]; // Удаляем все объекты
+    }
 
-// int main() {
-//     MySet<int> x;
-//     x.add_element(1);
-//     x.add_element(3);
-//     std::cout << x;
+    // Создаем новый пустой контейнер
+    container = MyVector<PrintedEdition*>();
+    std::cout << "Контейнер очищен" << std::endl;
+}
 
-//     MyVector y;
-//     y.add_element(2);
-//     y.add_element(4);
-//     std::cout << y;
-// }
+// Демонстрационный режим
+void demonstrationMode() {
+    std::cout << "===== Демонстрационный режим =====\n";
+
+    MyVector<PrintedEdition*> container;
+
+    // Добавление объектов в контейнер
+    std::cout << "\nДобавление объектов в контейнер:" << std::endl;
+
+    container.add_element(new Magazine("National Geographic", 120, "National Geographic Society", 2023, 5, "Май 2023"));
+    container.add_element(new Book("1984", 328, "Penguin Books", 1949, "Джордж Оруэлл", "Антиутопия"));
+    container.add_element(new Textbook("Высшая математика", 800, "Высшая школа", 2022, "Иванов И.И.", "Учебная литература", "Математика", "Университет"));
+
+    // Вывод содержимого контейнера
+    print(container);
+
+    // Удаление объекта по индексу
+    std::cout << "\nУдаление объекта по индексу 1:" << std::endl;
+    remove(container, 1);
+
+    // Вывод содержимого после удаления
+    print(container);
+
+    // Очистка контейнера
+    std::cout << "\nОчистка контейнера:" << std::endl;
+    clear(container);
+
+    // Проверка, что контейнер пуст
+    print(container);
+}
+
+// Создает новый объект на основе выбора пользователя
+PrintedEdition* createNewObject() {
+    int choice;
+    std::string title, publisher, author, genre, subject, gradeLevel, issueDate;
+    int pages, year, issueNumber;
+
+    std::cout << "\nВыберите тип издания:\n";
+    std::cout << "1. Журнал\n";
+    std::cout << "2. Книга\n";
+    std::cout << "3. Учебник\n";
+    std::cout << "Ваш выбор: ";
+    std::cin >> choice;
+    std::cin.ignore();
+
+    std::cout << "Введите название: ";
+    std::getline(std::cin, title);
+    std::cout << "Введите количество страниц: ";
+    std::cin >> pages;
+    std::cin.ignore();
+    std::cout << "Введите издателя: ";
+    std::getline(std::cin, publisher);
+    std::cout << "Введите год издания: ";
+    std::cin >> year;
+    std::cin.ignore();
+
+    switch (choice) {
+        case 1: // Журнал
+            std::cout << "Введите номер выпуска: ";
+            std::cin >> issueNumber;
+            std::cin.ignore();
+            std::cout << "Введите дату выпуска: ";
+            std::getline(std::cin, issueDate);
+            return new Magazine(title, pages, publisher, year, issueNumber, issueDate);
+
+        case 2: // Книга
+            std::cout << "Введите автора: ";
+            std::getline(std::cin, author);
+            std::cout << "Введите жанр: ";
+            std::getline(std::cin, genre);
+            return new Book(title, pages, publisher, year, author, genre);
+
+        case 3: // Учебник
+            std::cout << "Введите автора: ";
+            std::getline(std::cin, author);
+            std::cout << "Введите жанр: ";
+            std::getline(std::cin, genre);
+            std::cout << "Введите предмет: ";
+            std::getline(std::cin, subject);
+            std::cout << "Введите уровень обучения: ";
+            std::getline(std::cin, gradeLevel);
+            return new Textbook(title, pages, publisher, year, author, genre, subject, gradeLevel);
+
+        default:
+            std::cout << "Неверный выбор. Создаем книгу по умолчанию.\n";
+            return new Book("Безымянная книга", 100, "Неизвестное издательство", 2023, "Неизвестный автор", "Неизвестный жанр");
+    }
+}
+
+// Интерактивный режим
+void interactiveMode() {
+    std::cout << "===== Интерактивный режим =====\n";
+
+    MyVector<PrintedEdition*> container;
+    int choice;
+    size_t index;
+
+    do {
+        std::cout << "\nМеню:\n";
+        std::cout << "1. Добавить издание\n";
+        std::cout << "2. Показать все издания\n";
+        std::cout << "3. Удалить издание по индексу\n";
+        std::cout << "4. Очистить контейнер\n";
+        std::cout << "0. Выход\n";
+        std::cout << "Ваш выбор: ";
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                container.add_element(createNewObject());
+                break;
+
+            case 2:
+                print(container);
+                break;
+
+            case 3:
+                std::cout << "Введите индекс для удаления: ";
+                std::cin >> index;
+                remove(container, index);
+                break;
+
+            case 4:
+                clear(container);
+                break;
+
+            case 0:
+                // Очищаем контейнер перед выходом
+                clear(container);
+                std::cout << "Выход из программы\n";
+                break;
+
+            default:
+                std::cout << "Неверный выбор. Попробуйте снова.\n";
+        }
+    } while (choice != 0);
+}
+
+int main() {
+    char mode;
+
+    std::cout << "Выберите режим работы:\n";
+    std::cout << "1. Демонстрационный режим\n";
+    std::cout << "2. Интерактивный режим\n";
+    std::cout << "Ваш выбор: ";
+    std::cin >> mode;
+
+    if (mode == '1') {
+        demonstrationMode();
+    } else if (mode == '2') {
+        interactiveMode();
+    } else {
+        std::cout << "Неверный выбор. Попробуйте ещё раз.\n";
+        return main();
+    }
+    std::cout << "\n\nХотите продолжить?\n";
+    std::cout << "1 - Продолжить\n";
+    std::cout << "Любая кнопка - выйти\n";
+    std::cout << "Ваш выбор: ";
+    std::cin >> mode;
+    if (mode == '1') {
+        return main();
+    } else {
+        std::cout << "Спасибо за работу! Программа завершена.\n";
+        return 0;
+    }
+}

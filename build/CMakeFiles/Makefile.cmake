@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "/home/dem/Lab/Demidov-CS-Labs-2025/CMakeLists.txt"
-  "/home/dem/Lab/Demidov-CS-Labs-2025/MySet/CMakeLists.txt"
   "/home/dem/Lab/Demidov-CS-Labs-2025/MyVector/CMakeLists.txt"
+  "/home/dem/Lab/Demidov-CS-Labs-2025/PrintedEdition/CMakeLists.txt"
   "CMakeFiles/4.0.1/CMakeCCompiler.cmake"
   "CMakeFiles/4.0.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.0.1/CMakeSystem.cmake"
@@ -139,13 +139,13 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/4.0.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.0.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "MySet/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "PrintedEdition/CMakeFiles/CMakeDirectoryInformation.cmake"
   "MyVector/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/lab5.dir/DependInfo.cmake"
-  "MySet/CMakeFiles/MySet.dir/DependInfo.cmake"
+  "CMakeFiles/lab7.dir/DependInfo.cmake"
+  "PrintedEdition/CMakeFiles/PrintedEdition.dir/DependInfo.cmake"
   "MyVector/CMakeFiles/MyVector.dir/DependInfo.cmake"
   )

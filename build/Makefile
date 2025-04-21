@@ -117,30 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lab5
+# Target rules for targets named lab7
 
 # Build rule for target.
-lab5: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab5
-.PHONY : lab5
+lab7: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab7
+.PHONY : lab7
 
 # fast build rule for target.
-lab5/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/build
-.PHONY : lab5/fast
+lab7/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/build
+.PHONY : lab7/fast
 
 #=============================================================================
-# Target rules for targets named MySet
+# Target rules for targets named PrintedEdition
 
 # Build rule for target.
-MySet: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MySet
-.PHONY : MySet
+PrintedEdition: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PrintedEdition
+.PHONY : PrintedEdition
 
 # fast build rule for target.
-MySet/fast:
-	$(MAKE) $(MAKESILENT) -f MySet/CMakeFiles/MySet.dir/build.make MySet/CMakeFiles/MySet.dir/build
-.PHONY : MySet/fast
+PrintedEdition/fast:
+	$(MAKE) $(MAKESILENT) -f PrintedEdition/CMakeFiles/PrintedEdition.dir/build.make PrintedEdition/CMakeFiles/PrintedEdition.dir/build
+.PHONY : PrintedEdition/fast
 
 #=============================================================================
 # Target rules for targets named MyVector
@@ -160,7 +160,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -168,7 +168,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -176,7 +176,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -187,9 +187,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MySet"
 	@echo "... MyVector"
-	@echo "... lab5"
+	@echo "... PrintedEdition"
+	@echo "... lab7"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
