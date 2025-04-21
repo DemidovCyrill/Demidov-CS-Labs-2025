@@ -13,9 +13,8 @@ protected:
 
 public:
     PrintedEdition(const std::string& title, int pages, const std::string& publisher, int year);
-    virtual ~PrintedEdition(); // Виртуальный деструктор для абстрактного класса
+    virtual ~PrintedEdition();
 
-    // Абстрактный метод для отображения данных
     virtual void show() const = 0;
 };
 

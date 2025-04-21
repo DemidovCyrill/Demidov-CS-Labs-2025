@@ -6,7 +6,6 @@
 #include "PrintedEdition/Book.h"
 #include "PrintedEdition/Textbook.h"
 
-// Функция для вывода содержимого контейнера
 void print(const MyVector<PrintedEdition*>& container) {
     std::cout << "\n===== Содержимое контейнера =====\n";
     if (container.get_size() == 0) {
@@ -20,63 +19,52 @@ void print(const MyVector<PrintedEdition*>& container) {
     }
 }
 
-// Функция для удаления объекта по индексу
 void remove(MyVector<PrintedEdition*>& container, size_t index) {
     if (index >= container.get_size()) {
         std::cout << "Ошибка: индекс выходит за пределы контейнера" << std::endl;
         return;
     }
 
-    delete container[index]; // Удаляем сам объект
-    container.delete_element(index); // Удаляем указатель из контейнера
+    delete container[index];
+    container.delete_element(index);
     std::cout << "Элемент по индексу " << index << " удален" << std::endl;
 }
 
-// Функция для очистки контейнера
 void clear(MyVector<PrintedEdition*>& container) {
     for (size_t i = 0; i < container.get_size(); ++i) {
-        delete container[i]; // Удаляем все объекты
+        delete container[i];
     }
 
-    // Создаем новый пустой контейнер
     container = MyVector<PrintedEdition*>();
     std::cout << "Контейнер очищен" << std::endl;
 }
 
-// Демонстрационный режим
 void demonstrationMode() {
     std::cout << "===== Демонстрационный режим =====\n";
 
     MyVector<PrintedEdition*> container;
 
-    // Добавление объектов в контейнер
     std::cout << "\nДобавление объектов в контейнер:" << std::endl;
 
     container.add_element(new Magazine("National Geographic", 120, "National Geographic Society", 2023, 5, "Май 2023"));
     container.add_element(new Book("1984", 328, "Penguin Books", 1949, "Джордж Оруэлл", "Антиутопия"));
     container.add_element(new Textbook("Высшая математика", 800, "Высшая школа", 2022, "Иванов И.И.", "Учебная литература", "Математика", "Университет"));
 
-    // Вывод содержимого контейнера
     print(container);
 
-    // Удаление объекта по индексу
     std::cout << "\nУдаление объекта по индексу 1:" << std::endl;
     remove(container, 1);
 
-    // Вывод содержимого после удаления
     print(container);
 
-    // Очистка контейнера
     std::cout << "\nОчистка контейнера:" << std::endl;
     clear(container);
 
-    // Проверка, что контейнер пуст
     print(container);
 }
 
-// Создает новый объект на основе выбора пользователя
 PrintedEdition* createNewObject() {
-    int choice;
+    char choice;
     std::string title, publisher, author, genre, subject, gradeLevel, issueDate;
     int pages, year, issueNumber;
 
@@ -100,7 +88,7 @@ PrintedEdition* createNewObject() {
     std::cin.ignore();
 
     switch (choice) {
-        case 1: // Журнал
+        case '1':
             std::cout << "Введите номер выпуска: ";
             std::cin >> issueNumber;
             std::cin.ignore();
@@ -108,14 +96,14 @@ PrintedEdition* createNewObject() {
             std::getline(std::cin, issueDate);
             return new Magazine(title, pages, publisher, year, issueNumber, issueDate);
 
-        case 2: // Книга
+        case '2':
             std::cout << "Введите автора: ";
             std::getline(std::cin, author);
             std::cout << "Введите жанр: ";
             std::getline(std::cin, genre);
             return new Book(title, pages, publisher, year, author, genre);
 
-        case 3: // Учебник
+        case '3':
             std::cout << "Введите автора: ";
             std::getline(std::cin, author);
             std::cout << "Введите жанр: ";
@@ -132,12 +120,11 @@ PrintedEdition* createNewObject() {
     }
 }
 
-// Интерактивный режим
 void interactiveMode() {
     std::cout << "===== Интерактивный режим =====\n";
 
     MyVector<PrintedEdition*> container;
-    int choice;
+    char choice;
     size_t index;
 
     do {
@@ -146,39 +133,34 @@ void interactiveMode() {
         std::cout << "2. Показать все издания\n";
         std::cout << "3. Удалить издание по индексу\n";
         std::cout << "4. Очистить контейнер\n";
-        std::cout << "0. Выход\n";
+        std::cout << "Выход - Любая кнпка\n";
         std::cout << "Ваш выбор: ";
         std::cin >> choice;
 
         switch (choice) {
-            case 1:
+            case '1':
                 container.add_element(createNewObject());
                 break;
 
-            case 2:
+            case '2':
                 print(container);
                 break;
 
-            case 3:
+            case '3':
                 std::cout << "Введите индекс для удаления: ";
                 std::cin >> index;
                 remove(container, index);
                 break;
 
-            case 4:
+            case '4':
                 clear(container);
                 break;
-
-            case 0:
-                // Очищаем контейнер перед выходом
+            default:
                 clear(container);
                 std::cout << "Выход из программы\n";
                 break;
-
-            default:
-                std::cout << "Неверный выбор. Попробуйте снова.\n";
         }
-    } while (choice != 0);
+    } while (choice != '0');
 }
 
 int main() {
