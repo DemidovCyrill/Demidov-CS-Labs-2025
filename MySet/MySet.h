@@ -29,16 +29,12 @@ public:
     }
 
     MySet& operator+=(const MySet& other) {
-        for (size_t i = 0; i < other.get_size(); ++i) {
-            add_element(other[i]);
-        }
+        apply_from(other, [this](const char* el) { add_element(el); });
         return *this;
     }
 
     MySet& operator-=(const MySet& other) {
-        for (size_t i = 0; i < other.get_size(); ++i) {
-            delete_element(other[i]);
-        }
+        apply_from(other, [this](const char* el) { delete_element(el); });
         return *this;
     }
 
@@ -52,21 +48,25 @@ public:
         }
         return *this;
     }
+
+private:
+    template <typename Func>
+    void apply_from(const MySet& other, Func func) {
+        for (size_t i = 0; i < other.get_size(); ++i) {
+            func(other[i]);
+        }
+    }
 };
 
 inline MySet operator+(const MySet& a, const MySet& b) {
     MySet result = a;
-    for (size_t i = 0; i < b.get_size(); ++i) {
-        result.add_element(b[i]);
-    }
+    result += b;
     return result;
 }
 
 inline MySet operator-(const MySet& a, const MySet& b) {
     MySet result = a;
-    for (size_t i = 0; i < b.get_size(); ++i) {
-        result.delete_element(b[i]);
-    }
+    result -= b;
     return result;
 }
 
