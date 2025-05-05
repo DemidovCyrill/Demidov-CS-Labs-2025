@@ -216,13 +216,13 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-MyVector_BINARY_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025/build/MyVector
+MyStack_BINARY_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025/build/MyVector
 
 //Value Computed by CMake
-MyVector_IS_TOP_LEVEL:STATIC=OFF
+MyStack_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-MyVector_SOURCE_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025/MyVector
+MyStack_SOURCE_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025/MyVector
 
 //Value Computed by CMake
 PrintedEdition_BINARY_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition

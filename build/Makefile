@@ -130,6 +130,19 @@ lab7/fast:
 .PHONY : lab7/fast
 
 #=============================================================================
+# Target rules for targets named MyVector
+
+# Build rule for target.
+MyVector: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyVector
+.PHONY : MyVector
+
+# fast build rule for target.
+MyVector/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/build
+.PHONY : MyVector/fast
+
+#=============================================================================
 # Target rules for targets named PrintedEdition
 
 # Build rule for target.
@@ -143,17 +156,65 @@ PrintedEdition/fast:
 .PHONY : PrintedEdition/fast
 
 #=============================================================================
-# Target rules for targets named MyVector
+# Target rules for targets named MyStack
 
 # Build rule for target.
-MyVector: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyVector
-.PHONY : MyVector
+MyStack: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyStack
+.PHONY : MyStack
 
 # fast build rule for target.
-MyVector/fast:
-	$(MAKE) $(MAKESILENT) -f MyVector/CMakeFiles/MyVector.dir/build.make MyVector/CMakeFiles/MyVector.dir/build
-.PHONY : MyVector/fast
+MyStack/fast:
+	$(MAKE) $(MAKESILENT) -f MyVector/CMakeFiles/MyStack.dir/build.make MyVector/CMakeFiles/MyStack.dir/build
+.PHONY : MyStack/fast
+
+MyVector/MyStack.o: MyVector/MyStack.cpp.o
+.PHONY : MyVector/MyStack.o
+
+# target to build an object file
+MyVector/MyStack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.o
+.PHONY : MyVector/MyStack.cpp.o
+
+MyVector/MyStack.i: MyVector/MyStack.cpp.i
+.PHONY : MyVector/MyStack.i
+
+# target to preprocess a source file
+MyVector/MyStack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.i
+.PHONY : MyVector/MyStack.cpp.i
+
+MyVector/MyStack.s: MyVector/MyStack.cpp.s
+.PHONY : MyVector/MyStack.s
+
+# target to generate assembly for a file
+MyVector/MyStack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.s
+.PHONY : MyVector/MyStack.cpp.s
+
+MyVector/MyVector.o: MyVector/MyVector.cpp.o
+.PHONY : MyVector/MyVector.o
+
+# target to build an object file
+MyVector/MyVector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.o
+.PHONY : MyVector/MyVector.cpp.o
+
+MyVector/MyVector.i: MyVector/MyVector.cpp.i
+.PHONY : MyVector/MyVector.i
+
+# target to preprocess a source file
+MyVector/MyVector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.i
+.PHONY : MyVector/MyVector.cpp.i
+
+MyVector/MyVector.s: MyVector/MyVector.cpp.s
+.PHONY : MyVector/MyVector.s
+
+# target to generate assembly for a file
+MyVector/MyVector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.s
+.PHONY : MyVector/MyVector.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -187,9 +248,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... MyStack"
 	@echo "... MyVector"
 	@echo "... PrintedEdition"
 	@echo "... lab7"
+	@echo "... MyVector/MyStack.o"
+	@echo "... MyVector/MyStack.i"
+	@echo "... MyVector/MyStack.s"
+	@echo "... MyVector/MyVector.o"
+	@echo "... MyVector/MyVector.i"
+	@echo "... MyVector/MyVector.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

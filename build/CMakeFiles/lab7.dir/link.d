@@ -4,7 +4,7 @@ lab7: \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/lab7.dir/main.cpp.o \
   PrintedEdition/libPrintedEdition.a \
-  MyVector/libMyVector.a \
+  libMyVector.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
@@ -44,7 +44,7 @@ CMakeFiles/lab7.dir/main.cpp.o:
 
 PrintedEdition/libPrintedEdition.a:
 
-MyVector/libMyVector.a:
+libMyVector.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
 

@@ -154,6 +154,30 @@ Book.cpp.s:
 	cd /home/dem/Lab/Demidov-CS-Labs-2025/build && $(MAKE) $(MAKESILENT) -f PrintedEdition/CMakeFiles/PrintedEdition.dir/build.make PrintedEdition/CMakeFiles/PrintedEdition.dir/Book.cpp.s
 .PHONY : Book.cpp.s
 
+ContainerFunctions.o: ContainerFunctions.cpp.o
+.PHONY : ContainerFunctions.o
+
+# target to build an object file
+ContainerFunctions.cpp.o:
+	cd /home/dem/Lab/Demidov-CS-Labs-2025/build && $(MAKE) $(MAKESILENT) -f PrintedEdition/CMakeFiles/PrintedEdition.dir/build.make PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o
+.PHONY : ContainerFunctions.cpp.o
+
+ContainerFunctions.i: ContainerFunctions.cpp.i
+.PHONY : ContainerFunctions.i
+
+# target to preprocess a source file
+ContainerFunctions.cpp.i:
+	cd /home/dem/Lab/Demidov-CS-Labs-2025/build && $(MAKE) $(MAKESILENT) -f PrintedEdition/CMakeFiles/PrintedEdition.dir/build.make PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.i
+.PHONY : ContainerFunctions.cpp.i
+
+ContainerFunctions.s: ContainerFunctions.cpp.s
+.PHONY : ContainerFunctions.s
+
+# target to generate assembly for a file
+ContainerFunctions.cpp.s:
+	cd /home/dem/Lab/Demidov-CS-Labs-2025/build && $(MAKE) $(MAKESILENT) -f PrintedEdition/CMakeFiles/PrintedEdition.dir/build.make PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.s
+.PHONY : ContainerFunctions.cpp.s
+
 Magazine.o: Magazine.cpp.o
 .PHONY : Magazine.o
 
@@ -238,6 +262,9 @@ help:
 	@echo "... Book.o"
 	@echo "... Book.i"
 	@echo "... Book.s"
+	@echo "... ContainerFunctions.o"
+	@echo "... ContainerFunctions.i"
+	@echo "... ContainerFunctions.s"
 	@echo "... Magazine.o"
 	@echo "... Magazine.i"
 	@echo "... Magazine.s"

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PrintedEdition.dir/Book.cpp.o"
   "CMakeFiles/PrintedEdition.dir/Book.cpp.o.d"
+  "CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o"
+  "CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o.d"
   "CMakeFiles/PrintedEdition.dir/Magazine.cpp.o"
   "CMakeFiles/PrintedEdition.dir/Magazine.cpp.o.d"
   "CMakeFiles/PrintedEdition.dir/PrintedEdition.cpp.o"

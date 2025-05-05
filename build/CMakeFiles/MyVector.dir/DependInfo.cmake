@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/dem/Lab/Demidov-CS-Labs-2025/MyVector/MyVector.cpp" "MyVector/CMakeFiles/MyVector.dir/MyVector.cpp.o" "gcc" "MyVector/CMakeFiles/MyVector.dir/MyVector.cpp.o.d"
+  "/home/dem/Lab/Demidov-CS-Labs-2025/MyVector/MyStack.cpp" "CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.o" "gcc" "CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.o.d"
+  "/home/dem/Lab/Demidov-CS-Labs-2025/MyVector/MyVector.cpp" "CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.o" "gcc" "CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

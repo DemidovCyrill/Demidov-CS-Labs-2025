@@ -1,8 +1,8 @@
-#include "Magazine.h"
+#include "PrintedEdition.h"
+#include <iostream>
 
-Magazine::Magazine(const std::string& title, int pages, const std::string& publisher, int year,
-                  int issueNumber, const std::string& issueDate)
-    : PrintedEdition(title, pages, publisher, year), issueNumber(issueNumber), issueDate(issueDate) {
+Magazine::Magazine(const std::string& t, int y, const std::string& p, int i)
+    : PrintedEdition(t, y), publisher(p), issue(i) {
     std::cout << "Magazine()" << std::endl;
 }
 
@@ -13,9 +13,7 @@ Magazine::~Magazine() {
 void Magazine::show() const {
     std::cout << "=== Журнал ===" << std::endl;
     std::cout << "Название: " << title << std::endl;
-    std::cout << "Страниц: " << pages << std::endl;
-    std::cout << "Издатель: " << publisher << std::endl;
     std::cout << "Год: " << year << std::endl;
-    std::cout << "Номер выпуска: " << issueNumber << std::endl;
-    std::cout << "Дата выпуска: " << issueDate << std::endl;
+    std::cout << "Издатель: " << publisher << std::endl;
+    std::cout << "Номер выпуска: " << issue << std::endl;
 }

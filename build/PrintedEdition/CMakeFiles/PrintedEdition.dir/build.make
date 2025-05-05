@@ -128,12 +128,27 @@ PrintedEdition/CMakeFiles/PrintedEdition.dir/Textbook.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PrintedEdition.dir/Textbook.cpp.s"
 	cd /home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dem/Lab/Demidov-CS-Labs-2025/PrintedEdition/Textbook.cpp -o CMakeFiles/PrintedEdition.dir/Textbook.cpp.s
 
+PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o: PrintedEdition/CMakeFiles/PrintedEdition.dir/flags.make
+PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/PrintedEdition/ContainerFunctions.cpp
+PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o: PrintedEdition/CMakeFiles/PrintedEdition.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o"
+	cd /home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o -MF CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o.d -o CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o -c /home/dem/Lab/Demidov-CS-Labs-2025/PrintedEdition/ContainerFunctions.cpp
+
+PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.i"
+	cd /home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dem/Lab/Demidov-CS-Labs-2025/PrintedEdition/ContainerFunctions.cpp > CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.i
+
+PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.s"
+	cd /home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dem/Lab/Demidov-CS-Labs-2025/PrintedEdition/ContainerFunctions.cpp -o CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.s
+
 # Object files for target PrintedEdition
 PrintedEdition_OBJECTS = \
 "CMakeFiles/PrintedEdition.dir/PrintedEdition.cpp.o" \
 "CMakeFiles/PrintedEdition.dir/Magazine.cpp.o" \
 "CMakeFiles/PrintedEdition.dir/Book.cpp.o" \
-"CMakeFiles/PrintedEdition.dir/Textbook.cpp.o"
+"CMakeFiles/PrintedEdition.dir/Textbook.cpp.o" \
+"CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o"
 
 # External object files for target PrintedEdition
 PrintedEdition_EXTERNAL_OBJECTS =
@@ -142,9 +157,10 @@ PrintedEdition/libPrintedEdition.a: PrintedEdition/CMakeFiles/PrintedEdition.dir
 PrintedEdition/libPrintedEdition.a: PrintedEdition/CMakeFiles/PrintedEdition.dir/Magazine.cpp.o
 PrintedEdition/libPrintedEdition.a: PrintedEdition/CMakeFiles/PrintedEdition.dir/Book.cpp.o
 PrintedEdition/libPrintedEdition.a: PrintedEdition/CMakeFiles/PrintedEdition.dir/Textbook.cpp.o
+PrintedEdition/libPrintedEdition.a: PrintedEdition/CMakeFiles/PrintedEdition.dir/ContainerFunctions.cpp.o
 PrintedEdition/libPrintedEdition.a: PrintedEdition/CMakeFiles/PrintedEdition.dir/build.make
 PrintedEdition/libPrintedEdition.a: PrintedEdition/CMakeFiles/PrintedEdition.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libPrintedEdition.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libPrintedEdition.a"
 	cd /home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition && $(CMAKE_COMMAND) -P CMakeFiles/PrintedEdition.dir/cmake_clean_target.cmake
 	cd /home/dem/Lab/Demidov-CS-Labs-2025/build/PrintedEdition && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PrintedEdition.dir/link.txt --verbose=$(VERBOSE)
 

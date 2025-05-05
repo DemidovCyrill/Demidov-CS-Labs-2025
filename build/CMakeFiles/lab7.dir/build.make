@@ -97,7 +97,7 @@ lab7: CMakeFiles/lab7.dir/main.cpp.o
 lab7: CMakeFiles/lab7.dir/build.make
 lab7: CMakeFiles/lab7.dir/compiler_depend.ts
 lab7: PrintedEdition/libPrintedEdition.a
-lab7: MyVector/libMyVector.a
+lab7: libMyVector.a
 lab7: CMakeFiles/lab7.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lab7"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab7.dir/link.txt --verbose=$(VERBOSE)

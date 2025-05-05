@@ -146,6 +146,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/lab7.dir/DependInfo.cmake"
+  "CMakeFiles/MyVector.dir/DependInfo.cmake"
   "PrintedEdition/CMakeFiles/PrintedEdition.dir/DependInfo.cmake"
-  "MyVector/CMakeFiles/MyVector.dir/DependInfo.cmake"
+  "MyVector/CMakeFiles/MyStack.dir/DependInfo.cmake"
   )

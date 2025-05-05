@@ -9,13 +9,15 @@ set(${project}_SOURCES
     PrintedEdition.cpp
     Magazine.cpp
     Book.cpp
-    Textbook.cpp)
+    Textbook.cpp
+    ContainerFunctions.cpp)
 
 set(${project}_HEADERS
     PrintedEdition.h
     Magazine.h
     Book.h
-    Textbook.h)
+    Textbook.h
+    ContainerFunctions.h)
 
 set(${project}_SOURCE_LIST
         ${${project}_SOURCES}

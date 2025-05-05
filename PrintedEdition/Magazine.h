@@ -1,19 +1,18 @@
-#ifndef MAGAZINE_H
-#define MAGAZINE_H
-
 #include "PrintedEdition.h"
 
-class Magazine : public PrintedEdition {
-protected:
-    int issueNumber;
-    std::string issueDate;
+Magazine::Magazine(const std::string& t, int y, const std::string& p, int i)
+    : PrintedEdition(t, y), publisher(p), issue(i) {
+    std::cout << "Magazine()" << std::endl;
+}
 
-public:
-    Magazine(const std::string& title, int pages, const std::string& publisher, int year,
-             int issueNumber, const std::string& issueDate);
-    virtual ~Magazine();
+Magazine::~Magazine() {
+    std::cout << "~Magazine()" << std::endl;
+}
 
-    void show() const override;
-};
-
-#endif // MAGAZINE_H
+void Magazine::show() const {
+    std::cout << "=== Журнал ===" << std::endl;
+    std::cout << "Название: " << title << std::endl;
+    std::cout << "Год: " << year << std::endl;
+    std::cout << "Издатель: " << publisher << std::endl;
+    std::cout << "Номер выпуска: " << issue << std::endl;
+}

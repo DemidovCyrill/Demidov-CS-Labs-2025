@@ -17,5 +17,12 @@ set(${project}_SOURCE_LIST
 add_executable(${project}
         ${${project}_SOURCE_LIST})
 
-target_link_libraries(${project} PrintedEdition)
-target_link_libraries(${project} MyVector)
+
+        add_library(MyVector STATIC
+    MyVector/MyStack.cpp
+    MyVector/MyVector.cpp
+)
+
+target_link_libraries(${project} PrintedEdition MyVector)
+# target_link_libraries(lab7 PrintedEdition MyVector)
+# target_link_libraries(${project} MyVector)

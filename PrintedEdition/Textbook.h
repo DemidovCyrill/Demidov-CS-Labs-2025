@@ -1,7 +1,8 @@
 #ifndef TEXTBOOK_H
 #define TEXTBOOK_H
 
-#include "Book.h"
+#include "PrintedEdition.h"
+#include <string>
 
 class Textbook : public Book {
 protected:
@@ -9,9 +10,8 @@ protected:
     std::string gradeLevel;
 
 public:
-    Textbook(const std::string& title, int pages, const std::string& publisher, int year,
-            const std::string& author, const std::string& genre,
-            const std::string& subject, const std::string& gradeLevel);
+    Textbook(const std::string& t, int y, const std::string& a, int p,
+             const std::string& s, const std::string& g);
     virtual ~Textbook();
 
     void show() const override;
