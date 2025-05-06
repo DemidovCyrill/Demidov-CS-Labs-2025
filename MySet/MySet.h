@@ -2,7 +2,7 @@
 #define MYSET_H
 
 #include "../MyVector/MyVector.h"
-#include <algorithm>
+
 
 class MySet : public MyVector<char*> {
 public:
@@ -17,7 +17,15 @@ public:
     void add_element(const char* element) {
         if (!is_element(element)) {
             MyVector<char*>::add_element(element);
-            sort();
+            for (size_t i = 0; i < size - 1; i++) {
+                for (size_t ii = 0; ii < size - i - 1; ii++) {
+                    if (strcmp(pdata[ii], pdata[ii + 1]) > 0) {
+                        char* temp = pdata[ii];
+                        pdata[ii] = pdata[ii + 1];
+                        pdata[ii + 1] = temp;
+                }
+            }
+        }
         }
     }
 

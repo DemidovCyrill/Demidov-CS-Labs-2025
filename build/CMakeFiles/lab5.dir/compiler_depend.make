@@ -8,10 +8,8 @@ CMakeFiles/lab5.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
-  /usr/include/c++/13/algorithm \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
-  /usr/include/c++/13/bits/algorithmfwd.h \
   /usr/include/c++/13/bits/alloc_traits.h \
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/basic_ios.h \
@@ -52,21 +50,17 @@ CMakeFiles/lab5.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
-  /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_function.h \
-  /usr/include/c++/13/bits/stl_heap.h \
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
   /usr/include/c++/13/bits/stl_pair.h \
-  /usr/include/c++/13/bits/stl_tempbuf.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
-  /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -94,8 +88,6 @@ CMakeFiles/lab5.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/new \
   /usr/include/c++/13/ostream \
-  /usr/include/c++/13/pstl/execution_defs.h \
-  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
@@ -239,6 +231,8 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libc.so:
 
+/usr/lib/x86_64-linux-gnu/crtn.o:
+
 /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
 
 /usr/lib/x86_64-linux-gnu/crti.o:
@@ -277,19 +271,17 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
-/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+/usr/include/c++/13/ext/string_conversions.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+/usr/include/c++/13/bits/stl_algobase.h:
 
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+/usr/include/c++/13/ext/alloc_traits.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+/usr/include/c++/13/bits/functexcept.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+/usr/include/c++/13/debug/debug.h:
 
 /usr/include/c++/13/cstring:
 
@@ -299,21 +291,15 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/cstdio:
 
-/usr/include/c++/13/bits/stl_algobase.h:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/c++/13/ext/string_conversions.h:
-
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/13/debug/assertions.h:
 
-/usr/include/c++/13/bits/uniform_int_dist.h:
-
 /usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/c++/13/bits/streambuf_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
 /usr/include/c++/13/bits/utility.h:
 
@@ -349,27 +335,13 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/move.h:
 
-/usr/include/c++/13/bits/memoryfwd.h:
+/usr/include/c++/13/bits/charconv.h:
 
-/usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/c++/13/bits/stl_function.h:
-
-/usr/include/c++/13/bits/ostream.tcc:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/c++/13/bits/stl_iterator.h:
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/c++/13/bits/stl_heap.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/usr/include/c++/13/string_view:
 
 /usr/include/c++/13/bits/basic_ios.h:
 
@@ -377,7 +349,13 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/alloc_traits.h:
 
+/usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/c++/13/bits/memoryfwd.h:
+
 /home/dem/Lab/Demidov-CS-Labs-2025/MyVector/MyVector.h:
+
+/usr/include/c++/13/exception:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
 
@@ -397,13 +375,19 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/localefwd.h:
 
-/usr/include/c++/13/bits/functexcept.h:
+/usr/include/c++/13/bits/stl_function.h:
 
-/usr/include/c++/13/ext/alloc_traits.h:
+/usr/include/c++/13/bits/ostream.tcc:
 
-/usr/include/c++/13/bits/charconv.h:
+/usr/include/c++/13/bits/memory_resource.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+/usr/include/c++/13/bits/stl_iterator.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
+
+/home/dem/Lab/Demidov-CS-Labs-2025/MySet/MySet.h:
+
+/usr/include/c++/13/bits/exception.h:
 
 /usr/include/c++/13/cwchar:
 
@@ -413,15 +397,7 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
-
-/usr/include/c++/13/bits/exception.h:
-
-/home/dem/Lab/Demidov-CS-Labs-2025/MySet/MySet.h:
-
-/usr/include/c++/13/algorithm:
-
-/usr/include/c++/13/debug/debug.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
@@ -455,6 +431,8 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/char_traits.h:
 
+/usr/include/c++/13/ext/numeric_traits.h:
+
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
 /usr/include/c++/13/bits/locale_classes.h:
@@ -487,6 +465,8 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/istream.tcc:
 
+/usr/include/c++/13/ext/atomicity.h:
+
 /usr/include/c++/13/bits/stl_pair.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
@@ -498,12 +478,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 /usr/include/c++/13/clocale:
 
 /usr/include/c++/13/bits/locale_classes.tcc:
-
-/usr/include/c++/13/exception:
-
-/usr/include/c++/13/ext/atomicity.h:
-
-/usr/include/c++/13/ext/numeric_traits.h:
 
 /usr/include/c++/13/ext/type_traits.h:
 
@@ -519,12 +493,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/ostream:
 
-/usr/include/c++/13/pstl/execution_defs.h:
-
-/usr/lib/x86_64-linux-gnu/crtn.o:
-
-/usr/include/c++/13/pstl/glue_algorithm_defs.h:
-
 /usr/include/c++/13/bits/new_allocator.h:
 
 /usr/include/c++/13/stdexcept:
@@ -536,6 +504,10 @@ CMakeFiles/lab5.dir/main.cpp.o:
 /usr/include/c++/13/string:
 
 /usr/include/c++/13/typeinfo:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/c++/13/string_view:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
@@ -587,10 +559,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
@@ -598,8 +566,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
@@ -645,10 +611,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
-/usr/include/c++/13/bits/stl_algo.h:
-
-/usr/include/c++/13/bits/stl_tempbuf.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
@@ -658,3 +620,17 @@ CMakeFiles/lab5.dir/main.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:

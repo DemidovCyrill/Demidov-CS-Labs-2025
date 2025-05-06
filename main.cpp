@@ -54,7 +54,7 @@ int main() {
     MyVector<char*> v1 = v;
     std::cout << "Вектор v1: " << v1 << std::endl;
     for (int i = 0; i < MAX_SIZE; i++)
-        v1.delete_element(0);
+        v1.delete_element(i);
     std::cout << "Вектор v1: " << v1 << std::endl;
     MySet s("Yes"), s1, s2;
     s.add_element("Привет!");

@@ -2,7 +2,7 @@
 #define MYVECTOR_H
 
 #include <iostream>
-#include <algorithm>
+
 #include <cstring>
 #include <stdexcept>
 
@@ -103,9 +103,32 @@ public:
         return pdata[index];
     }
 
+    template <int>
     void sort() {
-        std::sort(pdata, pdata + size);
+        for (size_t i = 0; i < size; i++) {
+            int maxx = i;
+            for (size_t ii = i; ii < size; ii++){
+                if (pdata[maxx] < pdata[ii]) {
+                    maxx = ii;
+                }
+            int c = pdata[i];
+            pdata[i] = pdata[maxx];
+            pdata[maxx] = c;
+            }
+        }
     }
+
+    template <const char*>
+    void sort(){
+        for (size_t i = 0; i < size - 1; i++) {
+            for (size_t ii = 0; ii < size - i - 1; ii++) {
+                if (strcmp(pdata[ii], pdata[ii + 1]) > 0) {
+                    char* temp = pdata[ii];
+                    pdata[ii] = pdata[ii + 1];
+                    pdata[ii + 1] = temp;
+            }
+        }
+    }}
 
     size_t get_size() const { return size; }
     size_t get_max_size() const { return max_size; }
@@ -200,9 +223,32 @@ public:
         return pdata[index];
     }
 
+    template <int>
     void sort() {
-        std::sort(pdata, pdata + size, char_utils::less_cstr);
+        for (size_t i = 0; i < size; i++) {
+            int maxx = i;
+            for (size_t ii = i; ii < size; ii++){
+                if (pdata[maxx] < pdata[ii]) {
+                    maxx = ii;
+                }
+            int c = pdata[i];
+            pdata[i] = pdata[maxx];
+            pdata[maxx] = c;
+            }
+        }
     }
+
+    template <const char*>
+    void sort(){
+        for (size_t i = 0; i < size - 1; i++) {
+            for (size_t ii = 0; ii < size - i - 1; ii++) {
+                if (strcmp(pdata[ii], pdata[ii + 1]) > 0) {
+                    char* temp = pdata[ii];
+                    pdata[ii] = pdata[ii + 1];
+                    pdata[ii + 1] = temp;
+            }
+        }
+    }}
 
     size_t get_size() const { return size; }
     size_t get_max_size() const { return max_size; }
