@@ -2,15 +2,25 @@
 #define MYVECTOR_H
 
 #include <iostream>
-
-#include <cstring>
 #include <stdexcept>
 
 namespace char_utils {
+    inline size_t strlen(const char* str) {
+        if (!str) return 0;
+        size_t len = 0;
+        while (str[len]) len++;
+        return len;
+    }
+
     inline char* copy_cstr(const char* src) {
         if (!src) return nullptr;
-        char* dst = new char[std::strlen(src) + 1];
-        std::strcpy(dst, src);
+        char* dst = new char[strlen(src) + 1];
+        size_t i = 0;
+        while (src[i]) {
+            dst[i] = src[i];
+            i++;
+        }
+        dst[i] = '\0';
         return dst;
     }
 
@@ -19,11 +29,33 @@ namespace char_utils {
     }
 
     inline bool equal_cstr(const char* a, const char* b) {
-        return std::strcmp(a, b) == 0;
+        if (!a && !b) return true;
+        if (!a || !b) return false;
+        size_t i = 0;
+        while (a[i] && b[i] && a[i] == b[i]) i++;
+        return a[i] == b[i];
     }
 
+    inline int strcmp(const char* a, const char* b) {
+        if (!a && !b) return 0;
+        if (!a) return -1;
+        if (!b) return 1;
+
+        size_t i = 0;
+        while (a[i] && b[i]) {
+            if (a[i] < b[i]) return -1;
+            if (a[i] > b[i]) return 1;
+            i++;
+        }
+
+        if (!a[i] && !b[i]) return 0;
+        if (!a[i]) return -1; // a короче
+        return 1; // b короче
+    }
+
+    // Сравнение "меньше"
     inline bool less_cstr(const char* a, const char* b) {
-        return std::strcmp(a, b) < 0;
+        return strcmp(a, b) < 0;
     }
 }
 
@@ -37,7 +69,9 @@ protected:
     void resize(size_t new_size) {
         if (new_size < 1) new_size = 1;
         T* new_data = new T[new_size];
-        std::copy(pdata, pdata + size, new_data);
+        for (size_t i = 0; i < size; i++) {
+            new_data[i] = pdata[i];
+        }
         delete[] pdata;
         pdata = new_data;
         max_size = new_size;
@@ -55,7 +89,9 @@ public:
 
     MyVector(const MyVector& other) : size(other.size), max_size(other.max_size) {
         pdata = new T[max_size];
-        std::copy(other.pdata, other.pdata + size, pdata);
+        for (size_t i = 0; i < size; i++) {
+            pdata[i] = other.pdata[i];
+        }
     }
 
     virtual ~MyVector() {
@@ -68,7 +104,9 @@ public:
         size = other.size;
         max_size = other.max_size;
         pdata = new T[max_size];
-        std::copy(other.pdata, other.pdata + size, pdata);
+        for (size_t i = 0; i < size; i++) {
+            pdata[i] = other.pdata[i];
+        }
         return *this;
     }
 
@@ -111,24 +149,25 @@ public:
                 if (pdata[maxx] < pdata[ii]) {
                     maxx = ii;
                 }
-            int c = pdata[i];
+            }
+            T c = pdata[i];
             pdata[i] = pdata[maxx];
             pdata[maxx] = c;
-            }
         }
     }
 
     template <const char*>
-    void sort(){
+    void sort() {
         for (size_t i = 0; i < size - 1; i++) {
             for (size_t ii = 0; ii < size - i - 1; ii++) {
-                if (strcmp(pdata[ii], pdata[ii + 1]) > 0) {
-                    char* temp = pdata[ii];
+                if (char_utils::strcmp(pdata[ii], pdata[ii + 1]) > 0) {
+                    T temp = pdata[ii];
                     pdata[ii] = pdata[ii + 1];
                     pdata[ii + 1] = temp;
+                }
             }
         }
-    }}
+    }
 
     size_t get_size() const { return size; }
     size_t get_max_size() const { return max_size; }
@@ -144,7 +183,9 @@ protected:
     void resize(size_t new_size) {
         if (new_size < 1) new_size = 1;
         char** new_data = new char*[new_size];
-        std::copy(pdata, pdata + size, new_data);
+        for (size_t i = 0; i < size; i++) {
+            new_data[i] = pdata[i];
+        }
         delete[] pdata;
         pdata = new_data;
         max_size = new_size;
@@ -228,27 +269,28 @@ public:
         for (size_t i = 0; i < size; i++) {
             int maxx = i;
             for (size_t ii = i; ii < size; ii++){
-                if (pdata[maxx] < pdata[ii]) {
+                if (char_utils::strcmp(pdata[maxx], pdata[ii]) < 0) {
                     maxx = ii;
                 }
-            int c = pdata[i];
+            }
+            char* c = pdata[i];
             pdata[i] = pdata[maxx];
             pdata[maxx] = c;
-            }
         }
     }
 
     template <const char*>
-    void sort(){
+    void sort() {
         for (size_t i = 0; i < size - 1; i++) {
             for (size_t ii = 0; ii < size - i - 1; ii++) {
-                if (strcmp(pdata[ii], pdata[ii + 1]) > 0) {
+                if (char_utils::strcmp(pdata[ii], pdata[ii + 1]) > 0) {
                     char* temp = pdata[ii];
                     pdata[ii] = pdata[ii + 1];
                     pdata[ii + 1] = temp;
+                }
             }
         }
-    }}
+    }
 
     size_t get_size() const { return size; }
     size_t get_max_size() const { return max_size; }

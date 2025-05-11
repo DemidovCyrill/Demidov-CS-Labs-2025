@@ -70,7 +70,6 @@ CMakeFiles/lab5.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
-  /usr/include/c++/13/cstring \
   /usr/include/c++/13/cwchar \
   /usr/include/c++/13/cwctype \
   /usr/include/c++/13/debug/assertions.h \
@@ -109,8 +108,6 @@ CMakeFiles/lab5.dir/main.cpp.o: /home/dem/Lab/Demidov-CS-Labs-2025/main.cpp \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
-  /usr/include/string.h \
-  /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
@@ -269,7 +266,7 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+/usr/include/c++/13/ext/type_traits.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
@@ -282,8 +279,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 /usr/include/c++/13/bits/functexcept.h:
 
 /usr/include/c++/13/debug/debug.h:
-
-/usr/include/c++/13/cstring:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
 
@@ -401,8 +396,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
-/usr/include/string.h:
-
 /usr/include/c++/13/bits/exception_ptr.h:
 
 /usr/include/c++/13/bits/basic_string.h:
@@ -479,8 +472,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 
 /usr/include/c++/13/bits/locale_classes.tcc:
 
-/usr/include/c++/13/ext/type_traits.h:
-
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/c++/13/iostream:
@@ -542,8 +533,6 @@ CMakeFiles/lab5.dir/main.cpp.o:
 /usr/include/pthread.h:
 
 /usr/include/sched.h:
-
-/usr/include/strings.h:
 
 /usr/include/wctype.h:
 
@@ -634,3 +623,5 @@ CMakeFiles/lab5.dir/main.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:

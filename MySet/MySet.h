@@ -19,7 +19,7 @@ public:
             MyVector<char*>::add_element(element);
             for (size_t i = 0; i < size - 1; i++) {
                 for (size_t ii = 0; ii < size - i - 1; ii++) {
-                    if (strcmp(pdata[ii], pdata[ii + 1]) > 0) {
+                    if (char_utils::strcmp(pdata[ii], pdata[ii + 1]) > 0) {
                         char* temp = pdata[ii];
                         pdata[ii] = pdata[ii + 1];
                         pdata[ii + 1] = temp;

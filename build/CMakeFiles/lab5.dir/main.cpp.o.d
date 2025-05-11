@@ -150,6 +150,5 @@ CMakeFiles/lab5.dir/main.cpp.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
  /home/dem/Lab/Demidov-CS-Labs-2025/MyVector/MyVector.h \
- /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
  /home/dem/Lab/Demidov-CS-Labs-2025/MySet/MySet.h \
  /home/dem/Lab/Demidov-CS-Labs-2025/MySet/../MyVector/MyVector.h
