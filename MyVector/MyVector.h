@@ -49,11 +49,10 @@ namespace char_utils {
         }
 
         if (!a[i] && !b[i]) return 0;
-        if (!a[i]) return -1; // a короче
-        return 1; // b короче
+        if (!a[i]) return -1;
+        return 1;
     }
 
-    // Сравнение "меньше"
     inline bool less_cstr(const char* a, const char* b) {
         return strcmp(a, b) < 0;
     }
