@@ -4,7 +4,6 @@
 #include "PrintedEdition/ContainerFunctions.h"
 
 int main() {
-    // Создаем стек для хранения указателей на объекты
     MyStack<PrintedEdition*> editions;
 
     int choice = 0;
@@ -111,8 +110,7 @@ int main() {
                 clear(editions);
                 break;
             case 7:
-                // Демонстрационный режим
-                clear(editions);  // Очищаем сначала
+                clear(editions);
 
                 editions.append(new Book("Война и мир", 1869, "Лев Толстой", 1225));
                 editions.append(new Textbook("Физика 101", 2020, "Доктор Смит", 350, "Физика", 10));
@@ -124,7 +122,7 @@ int main() {
                 break;
             case 8:
                 running = false;
-                clear(editions);  // Очищаем перед выходом
+                clear(editions);
                 std::cout << "Выход из программы..." << std::endl;
                 break;
             default:
