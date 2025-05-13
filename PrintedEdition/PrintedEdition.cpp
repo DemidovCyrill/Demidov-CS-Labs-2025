@@ -1,6 +1,5 @@
 #include "PrintedEdition.h"
 
-// PrintedEdition implementations
 PrintedEdition::PrintedEdition(const std::string& t, int y) : title(t), year(y) {
     std::cout << "PrintedEdition()" << std::endl;
 }
@@ -9,7 +8,6 @@ PrintedEdition::~PrintedEdition() {
     std::cout << "~PrintedEdition()" << std::endl;
 }
 
-// Book implementations
 Book::Book(const std::string& t, int y, const std::string& a, int p)
     : PrintedEdition(t, y), author(a), pages(p) {
     std::cout << "Book()" << std::endl;
@@ -27,7 +25,6 @@ void Book::show() const {
     std::cout << "Страниц: " << pages << std::endl;
 }
 
-// Textbook implementations
 Textbook::Textbook(const std::string& t, int y, const std::string& a, int p,
         const std::string& s, int g)
     : Book(t, y, a, p), subject(s), grade(g) {
@@ -48,7 +45,6 @@ void Textbook::show() const {
     std::cout << "Класс: " << grade << std::endl;
 }
 
-// Magazine implementations
 Magazine::Magazine(const std::string& t, int y, const std::string& p, int i)
     : PrintedEdition(t, y), publisher(p), issue(i) {
     std::cout << "Magazine()" << std::endl;

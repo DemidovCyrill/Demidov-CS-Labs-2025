@@ -2,7 +2,7 @@
 #define MyStack_h
 
 #include <ostream>
-#include <iostream> // для std::cout, который используется в операторах <<
+#include <iostream>
 
 template<class INF, class FRIEND>
 class ListNode

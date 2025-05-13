@@ -113,7 +113,7 @@ int main() {
                 clear(editions);
 
                 editions.append(new Book("Война и мир", 1869, "Лев Толстой", 1225));
-                editions.append(new Textbook("Физика 101", 2020, "Доктор Смит", 350, "Физика", 10));
+                editions.append(new Textbook("Информатика 101", 2020, "Демидов Кирилл", 350, "Программирование", 10));
                 editions.append(new Magazine("National Geographic", 2023, "NGS", 256));
                 editions.append(new Book("Преступление и наказание", 1866, "Федор Достоевский", 671));
 

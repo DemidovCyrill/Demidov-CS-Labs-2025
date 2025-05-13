@@ -32,7 +32,6 @@ public:
     void show() const override;
 };
 
-// Производный класс Учебник
 class Textbook : public Book {
 private:
     std::string subject;
@@ -45,7 +44,6 @@ public:
     void show() const override;
 };
 
-// Производный класс Журнал
 class Magazine : public PrintedEdition {
     protected:
         std::string publisher;
@@ -55,7 +53,6 @@ class Magazine : public PrintedEdition {
         Magazine(const std::string& t, int y, const std::string& p, int i);
         virtual ~Magazine();
 
-        // Добавляем геттеры
         std::string getPublisher() const { return publisher; }
         int getIssue() const { return issue; }
 
