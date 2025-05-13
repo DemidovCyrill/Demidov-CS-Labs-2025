@@ -18,7 +18,7 @@ int main() {
     std::cout << "Вектор v: " << v << std::endl;
     MyVector<char*> v1 = v;
     std::cout << "Вектор v1: " << v1 << std::endl;
-    for (int i = 0; i < MAX_SIZE; i++)
+    for (int i = 0; i < 100; i++)
         v1.delete_element(i);
     std::cout << "Вектор v1: " << v1 << std::endl;
     MySet s("Yes"), s1, s2;

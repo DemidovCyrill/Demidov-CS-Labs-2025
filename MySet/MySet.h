@@ -5,28 +5,91 @@
 
 class MySet : public MyVector<char*> {
 public:
-    MySet(size_t initial_size = 1);
-    MySet(char* str);
-    MySet(const MySet& other);
+    MySet(size_t initial_size = 1) : MyVector<char*>(initial_size) {}
+    MySet(const char* str) : MyVector<char*>(str) {}
+    MySet(const MySet& other) : MyVector<char*>(other) {}
 
-    bool is_element(char* element) const;
-    void add_element(char* element) override;
-    void insert_at(size_t index, char* element);
-    void delete_element(char* element);
+    bool is_element(const char* element) const {
+        return find(element) != -1;
+    }
 
-    MySet& operator+=(const MySet& other);
-    MySet& operator-=(const MySet& other);
-    MySet& operator*=(const MySet& other);
+    void add_element(const char* element) {
+        if (!is_element(element)) {
+            MyVector<char*>::add_element(element);
+            sort();
+        }
+    }
 
-private:
-    template <typename Func>
-    void apply_from(const MySet& other, Func func);
+    void delete_element(const char* element) {
+        int index = find(element);
+        if (index != -1) {
+            MyVector<char*>::delete_element(index);
+        }
+    }
+
+    MySet& operator+=(const MySet& other) {
+        for (size_t i = 0; i < other.get_size(); ++i) {
+            add_element(other[i]);
+        }
+        return *this;
+    }
+
+    MySet& operator-=(const MySet& other) {
+        for (size_t i = 0; i < other.get_size(); ++i) {
+            delete_element(other[i]);
+        }
+        return *this;
+    }
+
+    MySet& operator*=(const MySet& other) {
+        for (size_t i = 0; i < get_size(); ) {
+            if (!other.is_element((*this)[i])) {
+                delete_element((*this)[i]);
+            } else {
+                ++i;
+            }
+        }
+        return *this;
+    }
 };
 
-MySet operator+(const MySet& a, const MySet& b);
-MySet operator-(const MySet& a, const MySet& b);
-MySet operator*(const MySet& a, const MySet& b);
-bool operator==(const MySet& a, const MySet& b);
-std::ostream& operator<<(std::ostream& os, const MySet& set);
+inline MySet operator+(const MySet& a, const MySet& b) {
+    MySet result = a;
+    result += b;
+    return result;
+}
+
+inline MySet operator-(const MySet& a, const MySet& b) {
+    MySet result = a;
+    result -= b;
+    return result;
+}
+
+inline MySet operator*(const MySet& a, const MySet& b) {
+    MySet result;
+    for (size_t i = 0; i < a.get_size(); ++i) {
+        if (b.is_element(a[i])) {
+            result.add_element(a[i]);
+        }
+    }
+    return result;
+}
+
+inline bool operator==(const MySet& a, const MySet& b) {
+    if (a.get_size() != b.get_size()) return false;
+    for (size_t i = 0; i < a.get_size(); ++i) {
+        if (!b.is_element(a[i])) return false;
+    }
+    return true;
+}
+
+inline std::ostream& operator<<(std::ostream& os, const MySet& set) {
+    os << "{";
+    for (size_t i = 0; i < set.get_size(); ++i) {
+        if (i > 0) os << ", ";
+        os << "\"" << set[i] << "\"";
+    }
+    return os << "}";
+}
 
 #endif // MYSET_H
