@@ -8,21 +8,20 @@ void print(const MyStack<PrintedEdition*>& stack) {
 
     std::cout << "\n--- Container Content ---\n";
 
+    MyStack<PrintedEdition*> forLenStack = stack;
     MyStack<PrintedEdition*> tempStack = stack;
-    MyStack<PrintedEdition*> reverseStack;
 
-    while (!tempStack.any()) {
-        reverseStack.append(tempStack.get());
-        tempStack.pop();
+    int index = -1;
+    while (!forLenStack.any()) {
+        forLenStack.pop();
+        index++;
     }
-
-    int index = 0;
-    while (!reverseStack.any()) {
-        PrintedEdition* item = reverseStack.get();
+    while (!tempStack.any()) {
+        PrintedEdition* item = tempStack.get();
         std::cout << "[" << index << "] ";
         item->show();
-        reverseStack.pop();
-        index++;
+        tempStack.pop();
+        index--;
     }
 
     std::cout << "------------------------\n";
@@ -57,9 +56,16 @@ void remove(MyStack<PrintedEdition*>& stack, int index) {
         currentIndex++;
     }
 
+    MyStack<PrintedEdition*> reversetStack;
+
     while (!resultStack.any()) {
-        stack.append(resultStack.get());
+        reversetStack.append(resultStack.get());
         resultStack.pop();
+    }
+
+    while (!reversetStack.any()) {
+        stack.append(reversetStack.get());
+        reversetStack.pop();
     }
 
     if (itemToRemove) {
