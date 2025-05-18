@@ -117,111 +117,120 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lab7
+# Target rules for targets named STL_Examples
 
 # Build rule for target.
-lab7: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab7
-.PHONY : lab7
+STL_Examples: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 STL_Examples
+.PHONY : STL_Examples
 
 # fast build rule for target.
-lab7/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/build
-.PHONY : lab7/fast
+STL_Examples/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/build
+.PHONY : STL_Examples/fast
 
-#=============================================================================
-# Target rules for targets named MyVector
-
-# Build rule for target.
-MyVector: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyVector
-.PHONY : MyVector
-
-# fast build rule for target.
-MyVector/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/build
-.PHONY : MyVector/fast
-
-#=============================================================================
-# Target rules for targets named PrintedEdition
-
-# Build rule for target.
-PrintedEdition: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PrintedEdition
-.PHONY : PrintedEdition
-
-# fast build rule for target.
-PrintedEdition/fast:
-	$(MAKE) $(MAKESILENT) -f PrintedEdition/CMakeFiles/PrintedEdition.dir/build.make PrintedEdition/CMakeFiles/PrintedEdition.dir/build
-.PHONY : PrintedEdition/fast
-
-#=============================================================================
-# Target rules for targets named MyStack
-
-# Build rule for target.
-MyStack: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyStack
-.PHONY : MyStack
-
-# fast build rule for target.
-MyStack/fast:
-	$(MAKE) $(MAKESILENT) -f MyVector/CMakeFiles/MyStack.dir/build.make MyVector/CMakeFiles/MyStack.dir/build
-.PHONY : MyStack/fast
-
-MyVector/MyStack.o: MyVector/MyStack.cpp.o
-.PHONY : MyVector/MyStack.o
+include/list_examples.o: include/list_examples.cpp.o
+.PHONY : include/list_examples.o
 
 # target to build an object file
-MyVector/MyStack.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.o
-.PHONY : MyVector/MyStack.cpp.o
+include/list_examples.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/list_examples.cpp.o
+.PHONY : include/list_examples.cpp.o
 
-MyVector/MyStack.i: MyVector/MyStack.cpp.i
-.PHONY : MyVector/MyStack.i
+include/list_examples.i: include/list_examples.cpp.i
+.PHONY : include/list_examples.i
 
 # target to preprocess a source file
-MyVector/MyStack.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.i
-.PHONY : MyVector/MyStack.cpp.i
+include/list_examples.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/list_examples.cpp.i
+.PHONY : include/list_examples.cpp.i
 
-MyVector/MyStack.s: MyVector/MyStack.cpp.s
-.PHONY : MyVector/MyStack.s
+include/list_examples.s: include/list_examples.cpp.s
+.PHONY : include/list_examples.s
 
 # target to generate assembly for a file
-MyVector/MyStack.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyStack.cpp.s
-.PHONY : MyVector/MyStack.cpp.s
+include/list_examples.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/list_examples.cpp.s
+.PHONY : include/list_examples.cpp.s
 
-MyVector/MyVector.o: MyVector/MyVector.cpp.o
-.PHONY : MyVector/MyVector.o
+include/map_examples.o: include/map_examples.cpp.o
+.PHONY : include/map_examples.o
 
 # target to build an object file
-MyVector/MyVector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.o
-.PHONY : MyVector/MyVector.cpp.o
+include/map_examples.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/map_examples.cpp.o
+.PHONY : include/map_examples.cpp.o
 
-MyVector/MyVector.i: MyVector/MyVector.cpp.i
-.PHONY : MyVector/MyVector.i
+include/map_examples.i: include/map_examples.cpp.i
+.PHONY : include/map_examples.i
 
 # target to preprocess a source file
-MyVector/MyVector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.i
-.PHONY : MyVector/MyVector.cpp.i
+include/map_examples.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/map_examples.cpp.i
+.PHONY : include/map_examples.cpp.i
 
-MyVector/MyVector.s: MyVector/MyVector.cpp.s
-.PHONY : MyVector/MyVector.s
+include/map_examples.s: include/map_examples.cpp.s
+.PHONY : include/map_examples.s
 
 # target to generate assembly for a file
-MyVector/MyVector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyVector.dir/build.make CMakeFiles/MyVector.dir/MyVector/MyVector.cpp.s
-.PHONY : MyVector/MyVector.cpp.s
+include/map_examples.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/map_examples.cpp.s
+.PHONY : include/map_examples.cpp.s
+
+include/string_examples.o: include/string_examples.cpp.o
+.PHONY : include/string_examples.o
+
+# target to build an object file
+include/string_examples.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/string_examples.cpp.o
+.PHONY : include/string_examples.cpp.o
+
+include/string_examples.i: include/string_examples.cpp.i
+.PHONY : include/string_examples.i
+
+# target to preprocess a source file
+include/string_examples.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/string_examples.cpp.i
+.PHONY : include/string_examples.cpp.i
+
+include/string_examples.s: include/string_examples.cpp.s
+.PHONY : include/string_examples.s
+
+# target to generate assembly for a file
+include/string_examples.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/string_examples.cpp.s
+.PHONY : include/string_examples.cpp.s
+
+include/vector_examples.o: include/vector_examples.cpp.o
+.PHONY : include/vector_examples.o
+
+# target to build an object file
+include/vector_examples.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/vector_examples.cpp.o
+.PHONY : include/vector_examples.cpp.o
+
+include/vector_examples.i: include/vector_examples.cpp.i
+.PHONY : include/vector_examples.i
+
+# target to preprocess a source file
+include/vector_examples.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/vector_examples.cpp.i
+.PHONY : include/vector_examples.cpp.i
+
+include/vector_examples.s: include/vector_examples.cpp.s
+.PHONY : include/vector_examples.s
+
+# target to generate assembly for a file
+include/vector_examples.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/include/vector_examples.cpp.s
+.PHONY : include/vector_examples.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -229,7 +238,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -237,7 +246,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STL_Examples.dir/build.make CMakeFiles/STL_Examples.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -248,16 +257,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MyStack"
-	@echo "... MyVector"
-	@echo "... PrintedEdition"
-	@echo "... lab7"
-	@echo "... MyVector/MyStack.o"
-	@echo "... MyVector/MyStack.i"
-	@echo "... MyVector/MyStack.s"
-	@echo "... MyVector/MyVector.o"
-	@echo "... MyVector/MyVector.i"
-	@echo "... MyVector/MyVector.s"
+	@echo "... STL_Examples"
+	@echo "... include/list_examples.o"
+	@echo "... include/list_examples.i"
+	@echo "... include/list_examples.s"
+	@echo "... include/map_examples.o"
+	@echo "... include/map_examples.i"
+	@echo "... include/map_examples.s"
+	@echo "... include/string_examples.o"
+	@echo "... include/string_examples.i"
+	@echo "... include/string_examples.s"
+	@echo "... include/vector_examples.o"
+	@echo "... include/vector_examples.i"
+	@echo "... include/vector_examples.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

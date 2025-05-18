@@ -1,0 +1,3 @@
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/STL_Examples.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/edit_cache.dir
+/home/dem/Lab/Demidov-CS-Labs-2025/build/CMakeFiles/rebuild_cache.dir

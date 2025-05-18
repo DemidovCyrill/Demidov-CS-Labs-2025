@@ -1,28 +1,11 @@
-cmake_minimum_required(VERSION 3.23)
-
-set(project "lab7")
-project(${project})
+cmake_minimum_required(VERSION 3.10)
+project(STL_Examples)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(${project}_SOURCES
-        main.cpp)
+include_directories(include)
 
-add_subdirectory(PrintedEdition)
-add_subdirectory(MyVector)
+file(GLOB SOURCES "include/*.cpp")
 
-set(${project}_SOURCE_LIST
-        ${${project}_SOURCES})
-
-add_executable(${project}
-        ${${project}_SOURCE_LIST})
-
-
-        add_library(MyVector STATIC
-    MyVector/MyStack.cpp
-    MyVector/MyVector.cpp
-)
-
-target_link_libraries(${project} PrintedEdition MyVector)
-# target_link_libraries(lab7 PrintedEdition MyVector)
-# target_link_libraries(${project} MyVector)
+add_executable(STL_Examples main.cpp ${SOURCES})

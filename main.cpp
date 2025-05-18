@@ -1,134 +1,27 @@
 #include <iostream>
-#include "MyVector/MyStack.h"
-#include "PrintedEdition/PrintedEdition.h"
-#include "PrintedEdition/ContainerFunctions.h"
+#include "string_examples.h"
+#include "vector_examples.h"
+#include "list_examples.h"
+#include "map_examples.h"
 
 int main() {
-    MyStack<PrintedEdition*> editions;
+    std::cout << "=== Демонстрация возможностей STL ===" << std::endl;
 
-    int choice = 0;
-    bool running = true;
+    // Задание 1-3: Примеры работы со строками
+    std::cout << "\n=== Примеры работы со строками ===\n";
+    runStringExamples();
 
-    while (running) {
-        std::cout << "\n=== Меню ===\n";
-        std::cout << "1. Добавить книгу\n";
-        std::cout << "2. Добавить учебник\n";
-        std::cout << "3. Добавить журнал\n";
-        std::cout << "4. Показать все элементы\n";
-        std::cout << "5. Удалить элемент по индексу\n";
-        std::cout << "6. Очистить все элементы\n";
-        std::cout << "7. Демо-режим\n";
-        std::cout << "8. Выход\n";
-        std::cout << "Введите ваш выбор: ";
-        std::cin >> choice;
+    // Задание 4-5: Примеры работы с векторами
+    std::cout << "\n=== Примеры работы с векторами ===\n";
+    runVectorExamples();
 
-        switch (choice) {
-            case 1: {
-                std::string title, author;
-                int year, pages;
+    // Задание 6-7: Примеры работы со списками
+    std::cout << "\n=== Примеры работы со списками ===\n";
+    runListExamples();
 
-                std::cout << "Введите название: ";
-                std::cin.ignore();
-                std::getline(std::cin, title);
-
-                std::cout << "Введите год: ";
-                std::cin >> year;
-
-                std::cout << "Введите автора: ";
-                std::cin.ignore();
-                std::getline(std::cin, author);
-
-                std::cout << "Введите количество страниц: ";
-                std::cin >> pages;
-
-                editions.append(new Book(title, year, author, pages));
-                std::cout << "Книга успешно добавлена" << std::endl;
-                break;
-            }
-            case 2: {
-                std::string title, author, subject;
-                int year, pages, grade;
-
-                std::cout << "Введите название: ";
-                std::cin.ignore();
-                std::getline(std::cin, title);
-
-                std::cout << "Введите год: ";
-                std::cin >> year;
-
-                std::cout << "Введите автора: ";
-                std::cin.ignore();
-                std::getline(std::cin, author);
-
-                std::cout << "Введите количество страниц: ";
-                std::cin >> pages;
-
-                std::cout << "Введите предмет: ";
-                std::cin.ignore();
-                std::getline(std::cin, subject);
-
-                std::cout << "Введите класс: ";
-                std::cin >> grade;
-
-                editions.append(new Textbook(title, year, author, pages, subject, grade));
-                std::cout << "Учебник успешно добавлен" << std::endl;
-                break;
-            }
-            case 3: {
-                std::string title, publisher;
-                int year, issue;
-
-                std::cout << "Введите название: ";
-                std::cin.ignore();
-                std::getline(std::cin, title);
-
-                std::cout << "Введите год: ";
-                std::cin >> year;
-
-                std::cout << "Введите издателя: ";
-                std::cin.ignore();
-                std::getline(std::cin, publisher);
-
-                std::cout << "Введите номер выпуска: ";
-                std::cin >> issue;
-
-                editions.append(new Magazine(title, year, publisher, issue));
-                std::cout << "Журнал успешно добавлен" << std::endl;
-                break;
-            }
-            case 4:
-                print(editions);
-                break;
-            case 5: {
-                int index;
-                std::cout << "Введите индекс для удаления: ";
-                std::cin >> index;
-                remove(editions, index);
-                break;
-            }
-            case 6:
-                clear(editions);
-                break;
-            case 7:
-                clear(editions);
-
-                editions.append(new Book("Война и мир", 1869, "Лев Толстой", 1225));
-                editions.append(new Textbook("Информатика 101", 2020, "Демидов Кирилл", 350, "Программирование", 10));
-                editions.append(new Magazine("National Geographic", 2023, "NGS", 256));
-                editions.append(new Book("Преступление и наказание", 1866, "Федор Достоевский", 671));
-
-                std::cout << "Демонстрационные элементы успешно добавлены" << std::endl;
-                print(editions);
-                break;
-            case 8:
-                running = false;
-                clear(editions);
-                std::cout << "Выход из программы..." << std::endl;
-                break;
-            default:
-                std::cout << "Неверный выбор. Пожалуйста, попробуйте снова." << std::endl;
-        }
-    }
+    // Задание 8-9: Примеры работы с отображениями
+    std::cout << "\n=== Примеры работы с отображениями ===\n";
+    runMapExamples();
 
     return 0;
 }
