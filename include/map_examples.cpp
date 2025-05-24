@@ -4,12 +4,10 @@
 #include <string>
 
 void runMapExamples() {
-    // Запускаем примеры работы с отображениями
     inventoryMapExample();
     schoolClassesMapExample();
 }
 
-// Функция для вывода отображения
 template<typename K, typename V>
 void printMap(const std::map<K, V>& m) {
     for (const auto& [key, value] : m) {
@@ -17,11 +15,9 @@ void printMap(const std::map<K, V>& m) {
     }
 }
 
-// Задание 8: Работа с отображением товаров
 void inventoryMapExample() {
     std::cout << "\nЗадание 8: Работа с отображением товаров\n";
 
-    // Создаем отображение и инициализируем его
     std::map<std::string, int> inventory = {
         {"Отверка", 0},
         {"Молоток", 10},
@@ -31,7 +27,6 @@ void inventoryMapExample() {
         {"Доска", 17}
     };
 
-    // Выводим товары с ненулевым количеством
     std::cout << "Товары с ненулевым количеством:\n";
     for (const auto& [product, quantity] : inventory) {
         if (quantity > 0) {
@@ -40,11 +35,9 @@ void inventoryMapExample() {
     }
 }
 
-// Задание 9: Работа с отображением классов школы
 void schoolClassesMapExample() {
     std::cout << "\nЗадание 9: Работа с отображением классов школы\n";
 
-    // Создаем отображение и инициализируем его
     std::map<std::string, int> schoolClasses = {
         {"1а", 21},
         {"1б", 20},
@@ -65,7 +58,6 @@ void schoolClassesMapExample() {
         {"11", 14}
     };
 
-    // Определяем общее количество учащихся
     int totalStudents = 0;
     for (const auto& [className, students] : schoolClasses) {
         totalStudents += students;
@@ -73,7 +65,6 @@ void schoolClassesMapExample() {
 
     std::cout << "Общее количество учащихся в школе: " << totalStudents << std::endl;
 
-    // Выводим содержимое отображения с помощью функции
     std::cout << "\nСписок классов и количество учащихся:\n";
     printMap(schoolClasses);
 }

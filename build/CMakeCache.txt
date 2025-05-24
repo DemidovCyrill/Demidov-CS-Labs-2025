@@ -224,24 +224,6 @@ STL_Examples_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 STL_Examples_SOURCE_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025
 
-//Value Computed by CMake
-lab7_BINARY_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025/build
-
-//Value Computed by CMake
-lab7_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-lab7_SOURCE_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025
-
-//Value Computed by CMake
-lab_7_BINARY_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025/build
-
-//Value Computed by CMake
-lab_7_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-lab_7_SOURCE_DIR:STATIC=/home/dem/Lab/Demidov-CS-Labs-2025
-
 
 ########################
 # INTERNAL cache entries

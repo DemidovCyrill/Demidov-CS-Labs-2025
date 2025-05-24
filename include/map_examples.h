@@ -8,7 +8,6 @@ void runMapExamples();
 void inventoryMapExample();
 void schoolClassesMapExample();
 
-// Функция для вывода отображения
 template<typename K, typename V>
 void printMap(const std::map<K, V>& m);
 
