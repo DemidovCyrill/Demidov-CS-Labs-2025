@@ -16,7 +16,7 @@ public:
     void add_element(const char* element) {
         if (!is_element(element)) {
             MyVector<char*>::add_element(element);
-            sort();
+            // sort();
         }
     }
 

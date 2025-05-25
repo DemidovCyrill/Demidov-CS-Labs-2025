@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <cstring> // Для strcmp и strcpy
 
 namespace char_utils {
     inline size_t strlen(const char* str) {
@@ -32,14 +31,30 @@ namespace char_utils {
     inline bool equal_cstr(const char* a, const char* b) {
         if (!a && !b) return true;
         if (!a || !b) return false;
-        return std::strcmp(a, b) == 0;
+        size_t i = 0;
+        while (a[i] && b[i] && a[i] == b[i]) i++;
+        return a[i] == b[i];
     }
 
     inline int strcmp(const char* a, const char* b) {
         if (!a && !b) return 0;
         if (!a) return -1;
         if (!b) return 1;
-        return std::strcmp(a, b);
+
+        size_t i = 0;
+        while (a[i] && b[i]) {
+            if (a[i] < b[i]) return -1;
+            if (a[i] > b[i]) return 1;
+            i++;
+        }
+
+        if (!a[i] && !b[i]) return 0;
+        if (!a[i]) return -1;
+        return 1;
+    }
+
+    inline bool less_cstr(const char* a, const char* b) {
+        return strcmp(a, b) < 0;
     }
 }
 
@@ -61,11 +76,12 @@ protected:
         max_size = new_size;
     }
 
-    void clear() {
-        delete[] pdata;
-        pdata = nullptr;
-        size = 0;
-        max_size = 0;
+    void clean_strings() {
+        if (std::is_same<T, char*>::value) {
+            for (size_t i = 0; i < size; i++) {
+                char_utils::delete_cstr(pdata[i]);
+            }
+        }
     }
 
 public:
@@ -78,28 +94,48 @@ public:
         pdata[0] = first_element;
     }
 
+    MyVector(const char* str) : size(1), max_size(1) {
+        static_assert(std::is_same<T, char*>::value, "This constructor is only for MyVector<char*>");
+        pdata = new char*[1];
+        pdata[0] = char_utils::copy_cstr(str);
+    }
+
     MyVector(const MyVector& other) : size(other.size), max_size(other.max_size) {
         pdata = new T[max_size];
         for (size_t i = 0; i < size; i++) {
-            pdata[i] = other.pdata[i];
+            if (std::is_same<T, char*>::value) {
+                pdata[i] = char_utils::copy_cstr(other.pdata[i]);
+            } else {
+                pdata[i] = other.pdata[i];
+            }
         }
     }
 
     virtual ~MyVector() {
-        clear();
+        if (std::is_same<T, char*>::value) {
+            clean_strings();
+        }
+        delete[] pdata;
     }
 
     MyVector& operator=(const MyVector& other) {
         if (this == &other) return *this;
 
-        clear();
+        if (std::is_same<T, char*>::value) {
+            clean_strings();
+        }
 
+        delete[] pdata;
         size = other.size;
         max_size = other.max_size;
         pdata = new T[max_size];
 
         for (size_t i = 0; i < size; i++) {
-            pdata[i] = other.pdata[i];
+            if (std::is_same<T, char*>::value) {
+                pdata[i] = char_utils::copy_cstr(other.pdata[i]);
+            } else {
+                pdata[i] = other.pdata[i];
+            }
         }
 
         return *this;
@@ -110,39 +146,37 @@ public:
         pdata[size++] = element;
     }
 
+    void add_element(const char* element) {
+        static_assert(std::is_same<T, char*>::value, "This method is only for MyVector<char*>");
+        if (size >= max_size) resize(max_size * 2);
+        pdata[size++] = char_utils::copy_cstr(element);
+    }
+
     void delete_element(size_t index) {
         if (index >= size) return;
+
+        if (std::is_same<T, char*>::value && pdata[index]) {
+            char_utils::delete_cstr(pdata[index]);
+        }
 
         for (size_t i = index; i < size - 1; ++i) {
             pdata[i] = pdata[i + 1];
         }
-
         size--;
-        if (size < max_size / 4 && max_size > 1) {
-            resize(max_size / 2);
-        }
-    }
-
-    void insert_at(size_t index, const T& element) {
-        if (index > size) {
-            throw std::out_of_range("Index out of range");
-        }
-
-        if (size >= max_size) {
-            resize(max_size * 2);
-        }
-
-        for (size_t i = size; i > index; --i) {
-            pdata[i] = pdata[i - 1];
-        }
-
-        pdata[index] = element;
-        size++;
+        if (size < max_size / 4 && max_size > 1) resize(max_size / 2);
     }
 
     int find(const T& element) const {
         for (size_t i = 0; i < size; ++i) {
             if (pdata[i] == element) return i;
+        }
+        return -1;
+    }
+
+    int find(const char* element) const {
+        static_assert(std::is_same<T, char*>::value, "This method is only for MyVector<char*>");
+        for (size_t i = 0; i < size; ++i) {
+            if (char_utils::equal_cstr(pdata[i], element)) return i;
         }
         return -1;
     }
@@ -157,188 +191,46 @@ public:
         return pdata[index];
     }
 
+    template <int>
     void sort() {
         for (size_t i = 0; i < size; i++) {
-            size_t max_idx = i;
-            for (size_t j = i; j < size; j++) {
-                if (pdata[max_idx] < pdata[j]) {
-                    max_idx = j;
+            int maxx = i;
+            for (size_t ii = i; ii < size; ii++){
+                if (std::is_same<T, char*>::value) {
+                    if (char_utils::strcmp(pdata[maxx], pdata[ii]) < 0) {
+                        maxx = ii;
+                    }
+                } else {
+                    if (pdata[maxx] < pdata[ii]) {
+                        maxx = ii;
+                    }
                 }
             }
-            std::swap(pdata[i], pdata[max_idx]);
+            T c = pdata[i];
+            pdata[i] = pdata[maxx];
+            pdata[maxx] = c;
         }
     }
 
-    size_t get_size() const { return size; }
-    size_t get_max_size() const { return max_size; }
-};
-
-// Специализация для char*
-template <>
-class MyVector<char*> {
-protected:
-    char** pdata;
-    size_t size;
-    size_t max_size;
-
-    void resize(size_t new_size) {
-        if (new_size < 1) new_size = 1;
-        char** new_pdata = new char*[new_size]();
-        for(size_t i = 0; i < size; ++i) {
-            new_pdata[i] = pdata[i];
-        }
-        delete[] pdata;
-        pdata = new_pdata;
-        max_size = new_size;
-    }
-
-    int partition(char** array, int left, int right) {
-        const char* pivot = array[(left + right) / 2];
-        int i = left;
-        int j = right;
-
-        while(i <= j) {
-            while(strcmp(array[i], pivot) < 0) ++i;
-            while(strcmp(array[j], pivot) > 0) --j;
-            if(i <= j) std::swap(array[i++], array[j--]);
-        }
-        return j;
-    }
-
-    void quickSort(char** array, int left, int right) {
-        if(left < right) {
-            int q = partition(array, left, right);
-            quickSort(array, left, q);
-            quickSort(array, q + 1, right);
-        }
-    }
-
-public:
-    MyVector(size_t initial_size = 1) : size(0), max_size(initial_size) {
-        pdata = new char*[max_size]();
-    }
-
-    MyVector(const char* element) : size(1), max_size(1) {
-        pdata = new char*[1];
-        if(element) {
-            pdata[0] = char_utils::copy_cstr(element);
-        } else {
-            pdata[0] = nullptr;
-        }
-    }
-
-    MyVector(const MyVector& other) : size(other.size), max_size(other.max_size) {
-        pdata = new char*[max_size]();
-        for(size_t i = 0; i < size; ++i) {
-            if(other.pdata[i]) {
-                pdata[i] = char_utils::copy_cstr(other.pdata[i]);
-            }
-        }
-    }
-
-    ~MyVector() {
-        for(size_t i = 0; i < size; ++i) {
-            char_utils::delete_cstr(pdata[i]);
-        }
-        delete[] pdata;
-    }
-
-    void add_element(const char* element) {
-        if(size == max_size) {
-            resize(max_size ? max_size * 2 : 1);
-        }
-        pdata[size] = char_utils::copy_cstr(element);
-        ++size;
-    }
-
-    void delete_element(size_t index) {
-        if(index >= size) return;
-
-        char_utils::delete_cstr(pdata[index]);
-        for(size_t i = index; i < size - 1; ++i) {
-            pdata[i] = pdata[i + 1];
-        }
-        --size;
-
-        if(size < max_size / 4 && max_size > 1) {
-            resize(max_size / 2);
-        }
-    }
-
-    void insert_at(size_t index, const char* element) {
-        if(index > size) {
-            throw std::out_of_range("Index out of range");
-        }
-
-        if(size >= max_size) {
-            resize(max_size * 2);
-        }
-
-        for(size_t i = size; i > index; --i) {
-            pdata[i] = pdata[i - 1];
-        }
-
-        pdata[index] = char_utils::copy_cstr(element);
-        size++;
-    }
-
-    int find(const char* element) const {
-        if(element == nullptr) {
-            for(size_t i = 0; i < size; ++i) {
-                if(pdata[i] == nullptr) {
-                    return static_cast<int>(i);
-                }
-            }
-        } else {
-            for(size_t i = 0; i < size; ++i) {
-                if(pdata[i] && char_utils::equal_cstr(element, pdata[i])) {
-                    return static_cast<int>(i);
-                }
-            }
-        }
-        return -1;
-    }
-
+    template <const char*>
     void sort() {
-        if(size > 1) {
-            quickSort(pdata, 0, static_cast<int>(size) - 1);
-        }
-    }
-
-    char*& operator[](size_t index) {
-        if(index >= size) {
-            throw std::out_of_range("Index out of range");
-        }
-        return pdata[index];
-    }
-
-    const char* operator[](size_t index) const {
-        if(index >= size) {
-            throw std::out_of_range("Index out of range");
-        }
-        return pdata[index];
-    }
-
-    MyVector& operator=(const MyVector& other) {
-        if(this != &other) {
-            // Очистка текущих данных
-            for(size_t i = 0; i < size; ++i) {
-                char_utils::delete_cstr(pdata[i]);
-            }
-            delete[] pdata;
-
-            // Копирование данных из other
-            max_size = other.max_size;
-            size = other.size;
-            pdata = new char*[max_size]();
-
-            for(size_t i = 0; i < size; ++i) {
-                if(other.pdata[i]) {
-                    pdata[i] = char_utils::copy_cstr(other.pdata[i]);
+        for (size_t i = 0; i < size - 1; i++) {
+            for (size_t ii = 0; ii < size - i - 1; ii++) {
+                if (std::is_same<T, char*>::value) {
+                    if (char_utils::strcmp(pdata[ii], pdata[ii + 1]) > 0) {
+                        T temp = pdata[ii];
+                        pdata[ii] = pdata[ii + 1];
+                        pdata[ii + 1] = temp;
+                    }
+                } else {
+                    if (pdata[ii] > pdata[ii + 1]) {
+                        T temp = pdata[ii];
+                        pdata[ii] = pdata[ii + 1];
+                        pdata[ii + 1] = temp;
+                    }
                 }
             }
         }
-        return *this;
     }
 
     size_t get_size() const { return size; }
@@ -351,20 +243,6 @@ std::ostream& operator<<(std::ostream& os, const MyVector<T>& vec) {
     for (size_t i = 0; i < vec.get_size(); ++i) {
         if (i > 0) os << ", ";
         os << vec[i];
-    }
-    return os << "}\n";
-}
-
-template <>
-std::ostream& operator<<(std::ostream& os, const MyVector<char*>& vec) {
-    os << "\n{";
-    for (size_t i = 0; i < vec.get_size(); ++i) {
-        if (i > 0) os << ", ";
-        if(vec[i]) {
-            os << "\"" << vec[i] << "\"";
-        } else {
-            os << "null";
-        }
     }
     return os << "}\n";
 }
